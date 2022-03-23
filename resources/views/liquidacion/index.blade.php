@@ -1,0 +1,93 @@
+@extends('adminlte::page')
+
+@section('title', 'Retransmepa')
+
+@section('content_header')
+    <h1>Listado de liquidaciones</h1>
+@stop
+
+@section('content')
+    <a href="liquidaciones/create" class="btn btn-primary mb-3">Añadir Liquidación</a>
+
+    <table id="liquidaciones" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+        <thead class="bg-primary text-white">
+            <tr>
+                <th scope="col">Nº Repartidor</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Entregas</th>
+                <th scope="col">Recojidas</th>
+                <th scope="col">Incidencias</th>
+                <th scope="col">Dia Trabajado</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Código Postal</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($liquidaciones as $liquidacion)
+            <tr>
+                <td>{{ $liquidacion-> numRepartidor }}</td>
+                <td>{{ $liquidacion-> nombre }}</td>
+                <td>{{ $liquidacion-> entregas }}</td>
+                <td>{{ $liquidacion-> recojidas }}</td>
+                <td>{{ $liquidacion-> incidencias }}</td>
+                <td>{{ $liquidacion-> diaTrabajado }}</td>
+                <td>{{ $liquidacion-> fecha }}</td>
+                <td>{{ $liquidacion-> codPostal }}</td>
+                <td>
+                    <form action="{{ route ('liquidaciones.destroy',$liquidacion->id) }}" method="POST">
+                        <a href="/liquidaciones/{{ $liquidacion-> id }}/edit" class="btn btn-info">Editar</a>
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
+@stop
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#liquidaciones').DataTable({
+            "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
+            "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+            // "dom": 'Bfrtip',
+            // "dom"; 'lfrtipB',
+            "responsive": false,
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                "infoFiltered": "(Filtrado de _MAX_ total registros)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    } );
+    </script>
+@stop
