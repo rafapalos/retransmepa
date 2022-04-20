@@ -38,6 +38,10 @@
             </select>
         </div>
         <div class="mb-3">
+            <label for="" class="form-label">Dinero</label>
+            <input id="dinero" name="dinero" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
             <input id="fecha" name="fecha" type="date" class="form-control">
         </div>

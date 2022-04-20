@@ -32,8 +32,9 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
-            <select class="form-control" id="estado" name="estado" value="{{$empleado->estado}}">
-                <option value="Activo" selected>Activo</option>
+            <select class="form-control" id="estado" name="estado">
+                <option value="{{$empleado->estado}}"></option>
+                <option value="Activo">Activo</option>
                 <option value="Baja">Baja</option>
                 <option value="Vacaciones">Vacaciones</option>
                 <option value="Inactivo">Inactivo</option>
@@ -41,8 +42,9 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
-            <select class="form-control" id="empresa" name="empresa" value="{{$empleado->empresa}}">
-                <option value="GLS" selected>GLS</option>
+            <select class="form-control" id="empresa" name="empresa">
+                <option value="{{$empleado->empresa}}"></option>
+                <option value="GLS">GLS</option>
                 <option value="SEUR">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
                 <option value="Todas">Todas</option>
@@ -50,7 +52,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Cargo</label>
-            <select class="form-control" id="cargo" name="cargo" value="{{$empleado->cargo}}">
+            <select class="form-control" id="cargo" name="cargo">
+                <option value="{{$empleado->cargo}}"></option>
                 <option value="Repartidor">Repartidor</option>
                 <option value="Administrativo">Administrativo</option>
                 <option value="Gerente">Gerente</option>

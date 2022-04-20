@@ -54,8 +54,8 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
     <!-- Buttons -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css"> -->
+    <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
 @stop
 
 @section('js')
@@ -77,7 +77,7 @@
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             // "dom": 'Bfrtip',
-            // "dom"; 'lfrtipB',
+            // "dom": 'lfrtipB',
             "responsive": false,
             language: {
                 "decimal": "",
@@ -103,11 +103,20 @@
                 // Botón para Excel
                 extend: 'excel',
                 footer: true,
-                title: 'Archivo',
                 filename: 'RegistroLimpiezas',
-                text:'<button class="btn" style="padding:0;border:none;position:relative;float: initial;">Exportar <i class="fas fa-file-excel"></i></button>'
+                className: 'btn btn-success'
+            },{
+                // Botón para Pdf
+                extend: 'pdf',
+                filename: 'RegistroLimpiezas',
+                className: 'btn btn-danger'
+            },{
+                // Botón para imprimir
+                extend: 'print',
+                className: 'btn btn-warning'
             }]
         });
     } );
+
     </script>
 @stop

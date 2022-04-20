@@ -16,7 +16,7 @@ class LiquidacionController extends Controller {
         return view('liquidacion.index')->with('liquidaciones', $liquidaciones);
     }
 
-    // Función para añadir liquidacion
+    // Función para añadir
     public function create() {
         return view('liquidacion.create');
     }
@@ -30,6 +30,7 @@ class LiquidacionController extends Controller {
         $liquidaciones-> recojidas = $request->get('recojidas');
         $liquidaciones-> incidencias = $request->get('incidencias');
         $liquidaciones-> diaTrabajado = $request->get('diaTrabajado');
+        $liquidaciones-> dinero = $request->get('dinero');
         $liquidaciones-> fecha = $request->get('fecha');
         $liquidaciones-> codPostal = $request->get('codPostal');
 
@@ -57,6 +58,7 @@ class LiquidacionController extends Controller {
         $liquidacion-> recojidas = $request->get('recojidas');
         $liquidacion-> incidencias = $request->get('incidencias');
         $liquidacion-> diaTrabajado = $request->get('diaTrabajado');
+        $liquidacion-> dinero = $request->get('dinero');
         $liquidacion-> fecha = $request->get('fecha');
         $liquidacion-> codPostal = $request->get('codPostal');
 

@@ -58,6 +58,7 @@
     $(document).ready(function() {
         $('#vehiculos').DataTable({
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "All"]],
+            "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             language: {
                 "decimal": "",
                 "emptyTable": "No hay información",

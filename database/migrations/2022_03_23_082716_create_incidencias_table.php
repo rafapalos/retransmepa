@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('incidencias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombreEmpleado',30);
+            $table->string('sector',20);
+            $table->string('descripcion',254);
+            $table->string('estado',30);
+            $table->integer('sancion');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

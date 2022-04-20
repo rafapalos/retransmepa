@@ -28,7 +28,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
-            <select class="form-control" id="empresa" name="empresa" value="{{$vehiculo->empresa}}">
+            <select class="form-control" id="empresa" name="empresa">
+                <option value="{{$vehiculo->empresa}}"></option>
                 <option value="GLS">GLS</option>
                 <option value="SEUR">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
@@ -36,7 +37,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
-            <select class="form-control" id="estado" name="estado" value="{{$vehiculo->estado}}">
+            <select class="form-control" id="estado" name="estado">
+                <option value="{{$vehiculo->estado}}"></option>
                 <option value="Activo">Activo</option>
                 <option value="Parado">Parado</option>
                 <option value="Taller">Taller</option>

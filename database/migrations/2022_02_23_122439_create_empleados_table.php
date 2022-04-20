@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->integer('numRepartidor');
+            $table->integer('numEmpleado');
             $table->string('nombre',50);
             $table->string('apellidos',50);
             $table->string('dni',10);
             $table->date('fechaNacimiento');
+            $table->string('estado',40);
+            $table->string('empresa',40);
+            $table->string('cargo',20);
             $table->timestamps();
         });
     }

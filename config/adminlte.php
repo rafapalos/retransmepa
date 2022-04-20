@@ -47,10 +47,10 @@ return [
 
     'logo' => '<b>Retransmepa</b>SL',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    // 'logo_img_class' => 'brand-image img-circle elevation-3',
+    // 'logo_img_xl' => null,
+    // 'logo_img_xl_class' => 'brand-image-xs',
+    // 'logo_img_alt' => 'AdminLTE',
 
     /*
     |--------------------------------------------------------------------------
@@ -246,13 +246,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Inicio',
-            'url'         => 'home',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 'Principal',
-            'label_color' => 'success',
-        ],
+        ['header' => 'Transporte'],
         [
             'text'        => 'Empleados',
             'url'         => 'empleados',
@@ -274,10 +268,19 @@ return [
             'label'       => 'CRUD',
             'label_color' => 'warning',
         ],
+        ['header' => 'Empresa'],
         [
             'text'        => 'Incidencias',
             'url'         => 'incidencias',
             'icon'        => 'fa fa-fw fa-exclamation',
+            'label'       => 'CRUD',
+            'label_color' => 'warning',
+        ],
+        ['header' => 'Lavadero'],
+        [
+            'text'       => 'Limpiezas',
+            'icon_color' => 'cyan',
+            'url'        => 'limpiezas',
             'label'       => 'CRUD',
             'label_color' => 'warning',
         ],
@@ -286,14 +289,6 @@ return [
             'text' => 'Perfil de Usuario',
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'header' => 'Lavadero'
-        ],
-        [
-            'text'       => 'Limpiezas',
-            'icon_color' => 'cyan',
-            'url'        => 'limpiezas',
         ],
     ],
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('modelo',50);
             $table->string('matricula',10);
             $table->string('empresa', 20);
+            $table->string('estado', 40);
             $table->timestamps();
         });
     }

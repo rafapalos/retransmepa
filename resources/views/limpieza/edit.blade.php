@@ -28,7 +28,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Lavado</label>
-            <select class="form-control" id="tipoLavado" name="tipoLavado" value="{{$limpieza->tipoLavado}}">
+            <select class="form-control" id="tipoLavado" name="tipoLavado">
+                <option value="{{$limpieza->tipoLavado}}"></option>
                 <option value="Básico">Básico</option>
                 <option value="Integral Tapicería">Integral Tapicería</option>
                 <option value="Integral Reestreno">Integral Reestreno</option>
@@ -36,7 +37,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Coche</label>
-            <select class="form-control" id="tipoCoche" name="tipoCoche" value="{{$limpieza->tipoCoche}}">
+            <select class="form-control" id="tipoCoche" name="tipoCoche">
+                <option value="{{$limpieza->tipoCoche}}"></option>
                 <option value="Pequeño">Pequeño</option>
                 <option value="Mediano">Mediano</option>
                 <option value="Grande">Grande</option>
@@ -44,7 +46,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="number" class="form-control" value="{{$limpieza->precio}}">
+            <input id="precio" name="precio" type="text" class="form-control" value="{{$limpieza->precio}}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Limpieza</label>
@@ -52,7 +54,8 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empleado a Asignar</label>
-            <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" value="{{$limpieza->empleadoAsignado}}">
+            <select class="form-control" id="empleadoAsignado" name="empleadoAsignado">
+                <option value="{{$limpieza->empleadoAsignado}}"></option>
                 <option value="Jose Torre de la Reina">Jose Torre de la Reina</option>
                 <option value="Otros">Otros</option>
             </select>

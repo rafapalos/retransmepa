@@ -43,7 +43,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="number" class="form-control">
+            <input id="precio" name="precio" type="text" class="form-control">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Limpieza</label>
