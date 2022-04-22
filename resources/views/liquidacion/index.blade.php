@@ -15,7 +15,7 @@
                 <th scope="col">Nº Repartidor</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Entregas</th>
-                <th scope="col">Recojidas</th>
+                <th scope="col">Recogidas</th>
                 <th scope="col">Incidencias</th>
                 <th scope="col">Dia Trabajado</th>
                 <th scope="col">Dinero</th>
@@ -30,7 +30,7 @@
                 <td>{{ $liquidacion-> numRepartidor }}</td>
                 <td>{{ $liquidacion-> nombre }}</td>
                 <td>{{ $liquidacion-> entregas }}</td>
-                <td>{{ $liquidacion-> recojidas }}</td>
+                <td>{{ $liquidacion-> recogidas }}</td>
                 <td>{{ $liquidacion-> incidencias }}</td>
                 <td>{{ $liquidacion-> diaTrabajado }}</td>
                 <td>{{ $liquidacion-> dinero }}</td>

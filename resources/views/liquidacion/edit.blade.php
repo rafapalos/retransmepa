@@ -23,8 +23,8 @@
             <input id="entregas" name="entregas" type="number" min="1" max="300" class="form-control" value="{{$liquidacion->entregas}}">
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Recojidas</label>
-            <input id="recojidas" name="recojidas" type="number" min="0" max="300" class="form-control" value="{{$liquidacion->recojidas}}">
+            <label for="" class="form-label">Recogidas</label>
+            <input id="recogidas" name="recogidas" type="number" min="0" max="300" class="form-control" value="{{$liquidacion->recogidas}}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Incidencias</label>

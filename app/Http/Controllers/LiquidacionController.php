@@ -27,7 +27,7 @@ class LiquidacionController extends Controller {
         $liquidaciones-> numRepartidor = $request->get('numRepartidor');
         $liquidaciones-> nombre = $request->get('nombre');
         $liquidaciones-> entregas = $request->get('entregas');
-        $liquidaciones-> recojidas = $request->get('recojidas');
+        $liquidaciones-> recogidas = $request->get('recogidas');
         $liquidaciones-> incidencias = $request->get('incidencias');
         $liquidaciones-> diaTrabajado = $request->get('diaTrabajado');
         $liquidaciones-> dinero = $request->get('dinero');
@@ -55,7 +55,7 @@ class LiquidacionController extends Controller {
         $liquidacion-> numRepartidor = $request->get('numRepartidor');
         $liquidacion-> nombre = $request->get('nombre');
         $liquidacion-> entregas = $request->get('entregas');
-        $liquidacion-> recojidas = $request->get('recojidas');
+        $liquidacion-> recogidas = $request->get('recogidas');
         $liquidacion-> incidencias = $request->get('incidencias');
         $liquidacion-> diaTrabajado = $request->get('diaTrabajado');
         $liquidacion-> dinero = $request->get('dinero');
