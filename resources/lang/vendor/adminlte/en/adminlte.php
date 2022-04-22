@@ -2,15 +2,15 @@
 
 return [
 
-    'full_name'                   => 'Full name',
-    'email'                       => 'Email',
+    'full_name'                   => 'Nombre',
+    'email'                       => 'Correo',
     'password'                    => 'Contraseña',
     'retype_password'             => 'Vuelva a escribir la contraseña',
     'remember_me'                 => 'Recuerdame',
     'register'                    => 'Registrarse',
     'register_a_new_membership'   => '¿Aun no te has registrado?',
     'i_forgot_my_password'        => '¿Olvidaste tu contraseña?',
-    'i_already_have_a_membership' => 'I already have a membership',
+    'i_already_have_a_membership' => 'Ya tengo cuenta',
     'sign_in'                     => 'Iniciar sesión',
     'log_out'                     => 'Cerrar sesión',
     'toggle_navigation'           => 'Toggle navigation',

@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Retransmepa</b>SL',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/favicon.ico',
     // 'logo_img_class' => 'brand-image img-circle elevation-3',
     // 'logo_img_xl' => null,
     // 'logo_img_xl_class' => 'brand-image-xs',
@@ -65,11 +65,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -246,6 +246,10 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        // [
+        //     'text' => 'Dashboard',
+        //     'route' => 'home'
+        // ],
         ['header' => 'Transporte'],
         [
             'text'        => 'Empleados',
