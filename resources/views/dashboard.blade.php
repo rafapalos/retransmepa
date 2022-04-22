@@ -9,7 +9,7 @@
         </div>
 
         <div class="card-body">
-            <p>Una empresa dedicada al transporte y lavado de vehículos</p>
+            <p>Una empresa dedicada al transporte y lavado de vehículos.</p>
         </div>
 
         <div class="card-body">
