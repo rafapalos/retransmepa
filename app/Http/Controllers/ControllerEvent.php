@@ -15,15 +15,21 @@ class ControllerEvent extends Controller {
     public function create(Request $request){
 
         $this->validate($request, [
-        'titulo'     =>  'required',
-        'descripcion'  =>  'required',
-        'fecha' =>  'required'
+        'nombre'     =>  'required',
+        'matricula'  =>  'required',
+        'marca'      =>  'required',
+        'modelo'     =>  'required',
+        'fecha'     =>   'required',
+        'hora'       =>  'required'
        ]);
   
         Event::insert([
-          'titulo'       => $request->input("titulo"),
-          'descripcion'  => $request->input("descripcion"),
-          'fecha'        => $request->input("fecha")
+          'nombre'       => $request->input("nombre"),
+          'matricula'    => $request->input("matricula"),
+          'marca'        => $request->input("marca"),
+          'modelo'       => $request->input("modelo"),
+          'fecha'       => $request->input("fecha"),
+          'hora'         => $request->input('hora')
         ]);
   
         return back()->with('success', 'Enviado exitosamente!');

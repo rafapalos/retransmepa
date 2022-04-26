@@ -38,21 +38,32 @@
        </div>
        @endif
 
-
       <div class="col-md-6">
         <form action="{{ asset('/Evento/create/') }}" method="post">
           @csrf
           <div class="fomr-group">
-            <label>Titulo</label>
-            <input type="text" class="form-control" name="titulo">
+            <label>Nombre</label>
+            <input type="text" class="form-control" name="nombre">
           </div>
           <div class="fomr-group">
-            <label>Descripcion de la cita</label>
-            <input type="text" class="form-control" name="descripcion">
+            <label>Matricula</label>
+            <input type="text" class="form-control" name="matricula">
+          </div>
+          <div class="fomr-group">
+            <label>Marca</label>
+            <input type="text" class="form-control" name="marca">
+          </div>
+          <div class="fomr-group">
+            <label>Modelo</label>
+            <input type="text" class="form-control" name="modelo">
           </div>
           <div class="fomr-group">
             <label>Fecha</label>
             <input type="date" class="form-control" name="fecha">
+          </div>
+          <div class="fomr-group">
+            <label>Hora</label>
+            <input type="time" min="06:00" max="22:00" class="form-control" name="hora">
           </div>
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">

@@ -25,27 +25,35 @@
         <form action="{{ asset('/Evento/create/') }}" method="post">
         @csrf
           <div class="fomr-group">
-            <h4>Titulo</h4>
-            {{ $event->titulo }}
+            <h4>Nombre</h4>
+            {{ $event->nombre }}
           </div>
           <div class="fomr-group">
-            <h4>Descripcion de la cita</h4>
-            {{ $event->descripcion }}
+            <h4>Matricula</h4>
+            {{ $event->matricula }}
+          </div>
+          <div class="fomr-group">
+            <h4>Marca</h4>
+            {{ $event->marca }}
+          </div>
+          <div class="fomr-group">
+            <h4>Modelo</h4>
+            {{ $event->modelo }}
           </div>
           <div class="fomr-group">
             <h4>Fecha</h4>
             {{ $event->fecha }}
+          </div>
+          <div class="fomr-group">
+            <h4>Hora</h4>
+            {{ $event->hora }}
           </div>
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>
       </div>
 
-
-      <!-- inicio de semana -->
-
-
-    </div> <!-- /container -->
+    </div>
 
   </body>
 </html>

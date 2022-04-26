@@ -53,7 +53,7 @@
               <!-- evento -->
               @foreach  ($dayweek['evento'] as $event) 
                   <a class="badge badge-primary" href="{{ asset('/Evento/details/') }}/{{ $event->id }}">
-                    {{ $event->titulo }}
+                    {{ $event->nombre}}-{{$event->hora}}
                   </a>
               @endforeach
             </div>

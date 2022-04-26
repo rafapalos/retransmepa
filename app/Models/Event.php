@@ -12,7 +12,7 @@ class Event extends Model {
 
     //
     protected $fillable = [
-        'titulo', 'descripcion', 'fecha',
+        'nombre', 'matricula', 'marca', 'modelo', 'fecha', 'hora'
     ];
 
     public $timestamps = false;
