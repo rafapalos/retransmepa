@@ -62,15 +62,17 @@
     $(document).ready(function() {
         $('#empleados').DataTable({
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
+            "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
+            "responsive": false,
             language: {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                "infoEmpty": "Mostrando 0 to 0 of 0 Registros",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Registros",
                 "infoFiltered": "(Filtrado de _MAX_ total registros)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ registros",
+                "lengthMenu": "Mostrar _MENU_ Registros",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscar:",

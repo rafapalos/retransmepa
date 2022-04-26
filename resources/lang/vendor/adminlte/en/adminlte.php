@@ -24,6 +24,6 @@ return [
     'verify_check_your_email'     => 'Before proceeding, please check your email for a verification link.',
     'verify_if_not_recieved'      => 'If you did not receive the email',
     'verify_request_another'      => 'click here to request another',
-    'confirm_password_message'    => 'Please, confirm your password to continue.',
+    'confirm_password_message'    => 'Por favor confirme su contraseña para continuar.',
     'remember_me_hint'            => 'Keep me authenticated indefinitely or until I manually logout',
 ];

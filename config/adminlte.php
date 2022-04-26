@@ -248,7 +248,8 @@ return [
         ],
         [
             'text' => 'Inicio',
-            'url' => 'dashboard'
+            'url' => 'dashboard',
+            'icon'        => 'fas fa-home',
         ],
         ['header' => 'Transporte'],
         [
@@ -286,6 +287,13 @@ return [
             'icon_color' => 'cyan',
             'url'        => 'limpiezas',
             'label'       => 'CRUD',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'       => 'Citas',
+            'icon_color' => 'danger',
+            'url'        => 'Evento/form',
+            'label'       => 'Calendario',
             'label_color' => 'warning',
         ],
         ['header' => 'Configuración de la cuenta'],

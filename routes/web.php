@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ControllerEvent;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -16,4 +17,9 @@ Route::resource('limpiezas', 'App\Http\Controllers\LimpiezaController');
 Route::resource('incidencias', 'App\Http\Controllers\IncidenciaController');
 Route::resource('liquidaciones', 'App\Http\Controllers\LiquidacionController');
 
-
+Route::get('Evento/form','App\Http\Controllers\ControllerEvent@form');
+Route::post('Evento/create','App\Http\Controllers\ControllerEvent@create');
+Route::get('Evento/details/{id}','App\Http\Controllers\ControllerEvent@details');
+Route::get('Evento/index','App\Http\Controllers\ControllerEvent@index');
+Route::get('Evento/index/{month}','App\Http\Controllers\ControllerEvent@index_month');
+Route::post('Evento/calendario','App\Http\Controllers\ControllerEvent@calendario');
