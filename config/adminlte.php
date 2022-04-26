@@ -273,13 +273,6 @@ return [
             'label'       => 'CRUD',
             'label_color' => 'warning',
         ],
-        [
-            'text'        => 'Gráficos',
-            'url'         => '/grafico/chart',
-            'icon'        => 'fa fa-fw fa-grafic',
-            'label'       => 'CRUD',
-            'label_color' => 'warning',
-        ],
         ['header' => 'Empresa'],
         [
             'text'        => 'Incidencias',
