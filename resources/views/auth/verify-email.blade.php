@@ -5,7 +5,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Gracias por registrarte! Antes de comenzar, ¿podría verificar su dirección de correo electrónico haciendo clic en el enlace que le acabamos de enviar? Si no recibiste el correo electrónico, con gusto te enviaremos otro.') }}
+            {{ __('Gracias por registrarte! Antes de comenzar, ¿Podrías enviarle al administrador un correo eléctronico a la direción retransmepa@gmail.com para que te verifique la cuenta.') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
