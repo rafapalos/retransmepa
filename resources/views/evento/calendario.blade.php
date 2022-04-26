@@ -17,7 +17,7 @@
     <div class="container">
       <div style="height:50px"></div>
       <p class="lead">
-      <a class="btn btn-primary"  href="{{ asset('/Evento/form') }}">Crear un evento</a>
+      <a class="btn btn-primary"  href="{{ asset('/Evento/form') }}">Crear un cita</a>
       <hr>
       <div class="row header-calendar"  >
 

@@ -47,7 +47,7 @@
             <input type="text" class="form-control" name="titulo">
           </div>
           <div class="fomr-group">
-            <label>Descripcion del Evento</label>
+            <label>Descripcion de la cita</label>
             <input type="text" class="form-control" name="descripcion">
           </div>
           <div class="fomr-group">

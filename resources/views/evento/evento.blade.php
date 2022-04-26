@@ -3,7 +3,7 @@
 @section('title', 'Retransmepa')
 
 @section('content_header')
-    <h1>Evento</h1>
+    <h1>Detalles de la cita</h1>
 @stop
 
 @section('content')
@@ -18,9 +18,7 @@
     <div class="container">
       <div style="height:50px"></div>
       <p class="lead">
-      <h3>Evento</h3>
-      <p>Detalles de evento</p>
-      <a class="btn btn-default"  href="{{ asset('/Evento/index') }}">Atras</a>
+      <a class="btn btn-primary"  href="{{ asset('/Evento/index') }}">Ir a calendario</a>
       <hr>
 
       <div class="col-md-6">
@@ -31,7 +29,7 @@
             {{ $event->titulo }}
           </div>
           <div class="fomr-group">
-            <h4>Descripcion del Evento</h4>
+            <h4>Descripcion de la cita</h4>
             {{ $event->descripcion }}
           </div>
           <div class="fomr-group">
