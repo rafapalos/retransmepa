@@ -19,7 +19,7 @@
       <p class="lead">
       <a class="btn btn-primary"  href="{{ asset('/Evento/form') }}">Crear un cita</a>
       <hr>
-      <div class="row header-calendar"  >
+      <div class="row header-calendar bg-primary"  >
 
         <div class="col" style="display: flex; justify-content: space-between; padding: 10px;">
           <a  href="{{ asset('Evento/index/') }}/<?= $data['last']; ?>" style="margin:10px;">
@@ -89,7 +89,7 @@
       font-weight: bold;
     }
     .header-calendar{
-      background: #EE192D;color:white;
+      color:white;
     }
     .box-day{
       border:1px solid #E3E9E5;
