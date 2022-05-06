@@ -24,32 +24,34 @@
       <div class="col-md-6">
         <form action="{{ asset('/Evento/create/') }}" method="post">
         @csrf
-          <div class="fomr-group">
-            <h4>Nombre</h4>
-            {{ $event->nombre }}
-          </div>
-          <div class="fomr-group">
-            <h4>Matricula</h4>
-            {{ $event->matricula }}
-          </div>
-          <div class="fomr-group">
-            <h4>Marca</h4>
-            {{ $event->marca }}
-          </div>
-          <div class="fomr-group">
-            <h4>Modelo</h4>
-            {{ $event->modelo }}
-          </div>
-          <div class="fomr-group">
-            <h4>Fecha</h4>
-            {{ $event->fecha }}
-          </div>
-          <div class="fomr-group">
-            <h4>Hora</h4>
-            {{ $event->hora }}
-          </div>
-          <br>
-          <input type="submit" class="btn btn-info" value="Guardar">
+        @method('PUT')
+        <div class="mb-3">
+            <label for="" class="form-label">Nombre</label>
+            <input id="nombre" name="nombre" type="text" class="form-control" value="{{$event->nombre}}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Matricula</label>
+            <input id="matricula" name="matricula" type="text" class="form-control" value="{{$event->matricula}}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Marca</label>
+            <input id="marca" name="marca" type="text" class="form-control" value="{{$event->marca}}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Modelo</label>
+            <input id="modelo" name="modelo" type="text" class="form-control" value="{{$event->modelo}}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Fecha</label>
+            <input id="fecha" name="fecha" type="date" class="form-control" value="{{$event->fecha}}">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Hora</label>
+            <input id="hora" name="hora" type="time" class="form-control" value="{{$event->hora}}">
+        </div>
+          <!-- <input type="submit" class="btn btn-info" value="Guardar" action="{{ asset('/Evento/index/') }}"> -->
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Borrar</button>
         </form>
       </div>
 

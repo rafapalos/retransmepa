@@ -13,6 +13,7 @@
         "laravel/jetstream": "^2.6",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
+        "larswiegers/laravel-maps": "^0.12.0",
         "livewire/livewire": "^2.5"
     },
     "require-dev": {

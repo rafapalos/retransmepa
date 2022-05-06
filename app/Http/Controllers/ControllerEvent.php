@@ -39,12 +39,19 @@ class ControllerEvent extends Controller {
       public function details($id){
   
         $event = Event::find($id);
+        
+        return view("evento/evento",["event" => $event]);
   
-        return view("evento/evento",[
-          "event" => $event
-        ]);
-  
-      }
+      } 
+
+      // public function destroy($id) {
+
+      //     $event = Event::find($id);
+
+      //     $event->delete();
+
+      //     return redirect()->route('/evento/form')->with('success', 'Evento borrado correctamente');
+      // }
 
       public function index(){
 
@@ -148,8 +155,7 @@ class ControllerEvent extends Controller {
         return $data;
       }
   
-      public static function spanish_month($month)
-      {
+      public static function spanish_month($month){
   
           $mes = $month;
           if ($month=="Jan") {

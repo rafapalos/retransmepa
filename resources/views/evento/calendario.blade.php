@@ -52,7 +52,7 @@
               {{ $dayweek['dia']  }}
               <!-- evento -->
               @foreach  ($dayweek['evento'] as $event) 
-                  <a class="badge badge-primary" href="{{ asset('/Evento/details/') }}/{{ $event->id }}">
+                  <a class="badge badge-primary textCalendar" href="{{ asset('/Evento/details/') }}/{{ $event->id }}">
                     {{ $event->nombre}}-{{$event->hora}}
                   </a>
               @endforeach
@@ -99,6 +99,9 @@
       border:1px solid #E3E9E5;
       height:150px;
       background-color: #ccd1ce;
+    }
+    .textCalendar{
+      font-size: x-small;
     }
     </style>
 @stop
