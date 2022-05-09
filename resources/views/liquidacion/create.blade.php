@@ -11,27 +11,27 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nº Repartidor</label>
-            <input id="numRepartidor" name="numRepartidor" type="number" min="0" max="9999" class="form-control">
+            <input id="numRepartidor" name="numRepartidor" type="number" min="0" max="9999" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control">
+            <input id="nombre" name="nombre" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Entregas</label>
-            <input id="entregas" name="entregas" type="number" min="1" max="300" class="form-control">
+            <input id="entregas" name="entregas" type="number" min="1" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Recogidas</label>
-            <input id="recogidas" name="recogidas" type="number" min="0" max="300" class="form-control">
+            <input id="recogidas" name="recogidas" type="number" min="0" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Incidencias</label>
-            <input id="incidencias" name="incidencias" type="number" min="0" max="300" class="form-control">
+            <input id="incidencias" name="incidencias" type="number" min="0" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Dia trabajado</label>
-            <select class="form-control" id="diaTrabajado" name="diaTrabajado">
+            <select class="form-control" id="diaTrabajado" name="diaTrabajado" required>
                 <option value="Dia Completo">Dia Completo</option>
                 <option value="Festivo">Festivo</option>
                 <option value="Normal">Normal</option>
@@ -39,15 +39,15 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Dinero</label>
-            <input id="dinero" name="dinero" type="text" class="form-control">
+            <input id="dinero" name="dinero" type="number" min="0" max="9999" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
-            <input id="fecha" name="fecha" type="date" class="form-control">
+            <input id="fecha" name="fecha" type="date" class="form-control" min="2022-01-01" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Código Postal Repartido</label>
-            <select class="form-control" id="codPostal" name="codPostal">
+            <select class="form-control" id="codPostal" name="codPostal" required>
                 <option value="41930">41930</option>
                 <option value="41927">41927</option>
                 <option value="41940">41940</option>

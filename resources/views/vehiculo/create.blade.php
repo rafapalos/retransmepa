@@ -11,23 +11,23 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nº Vehiculo</label>
-            <input id="numVehiculo" name="numVehiculo" type="text" class="form-control">
+            <input id="numVehiculo" name="numVehiculo" type="number" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
-            <input id="marca" name="marca" type="text" class="form-control">
+            <input id="marca" name="marca" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Modelo</label>
-            <input id="modelo" name="modelo" type="text" class="form-control">
+            <input id="modelo" name="modelo" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" class="form-control">
+            <input id="matricula" name="matricula" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
-            <select class="form-control" id="empresa" name="empresa">
+            <select class="form-control" id="empresa" name="empresa" required>
                 <option value="GLS" selected>GLS</option>
                 <option value="Seur">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
-            <select class="form-control" id="estado" name="estado">
+            <select class="form-control" id="estado" name="estado" required>
                 <option value="Activo" selected>Activo</option>
                 <option value="Parado">Parado</option>
                 <option value="Taller">Taller</option>

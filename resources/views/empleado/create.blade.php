@@ -11,27 +11,27 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nº Empleado</label>
-            <input id="numEmpleado" name="numEmpleado" type="text" class="form-control" tabindex="1">
+            <input id="numEmpleado" name="numEmpleado" type="number" class="form-control" tabindex="1" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2">
+            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Apellidos</label>
-            <input id="apellidos" name="apellidos" type="text" class="form-control" tabindex="3">
+            <input id="apellidos" name="apellidos" type="text" class="form-control" tabindex="3" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
-            <input id="dni" name="dni" type="text" class="form-control" tabindex="4">
+            <input id="dni" name="dni" type="text" class="form-control" tabindex="4" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha nacimiento</label>
-            <input id="fechaNacimiento" name="fechaNacimiento" type="date" class="form-control" tabindex="5">
+            <input id="fechaNacimiento" name="fechaNacimiento" type="date" class="form-control" tabindex="5" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
-            <select class="form-control" id="estado" name="estado">
+            <select class="form-control" id="estado" name="estado" required>
                 <option value="Activo">Activo</option>
                 <option value="Baja">Baja</option>
                 <option value="Vacaciones">Vacaciones</option>
@@ -40,7 +40,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
-            <select class="form-control" id="empresa" name="empresa">
+            <select class="form-control" id="empresa" name="empresa" required>
                 <option value="GLS">GLS</option>
                 <option value="SEUR">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
@@ -49,7 +49,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Cargo</label>
-            <select class="form-control" id="cargo" name="cargo">
+            <select class="form-control" id="cargo" name="cargo" required>
                 <option value="Repartidor">Repartidor</option>
                 <option value="Administrativo">Administrativo</option>
                 <option value="Gerente">Gerente</option>
