@@ -273,6 +273,13 @@ return [
             'label'       => 'CRUD',
             'label_color' => 'warning',
         ],
+        [
+            'text'        => 'Graficos',
+            'url'         => 'grafico',
+            'icon'        => 'fa fa-fw fa-money-bill',
+            'label'       => 'Gráfico',
+            'label_color' => 'warning',
+        ],
         ['header' => 'Empresa'],
         [
             'text'        => 'Incidencias',
