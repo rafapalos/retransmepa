@@ -55,16 +55,22 @@
 @stop
 
 @section('css')
+    <!-- Admin -->
     <link rel="stylesheet" href="/css/admin_custom.css">
+
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
     <!-- Buttons -->
     <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
 @stop
 
 @section('js')
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+
     <!-- Buttons -->
     <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
@@ -84,7 +90,7 @@
             // "dom": 'Bfrtip',
             // "dom": 'lfrtipB',
             "responsive": false,
-            language: {
+            "language": {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
@@ -119,7 +125,8 @@
                 // Botón para imprimir
                 extend: 'print',
                 className: 'btn btn-warning'
-            }]
+            }],
+            "order": [[ 0, "asc" ]]
         });
     } );
     </script>
