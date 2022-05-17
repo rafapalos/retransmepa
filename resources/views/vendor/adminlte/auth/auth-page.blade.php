@@ -51,7 +51,6 @@
             @endif
 
         </div>
-
     </div>
 @stop
 

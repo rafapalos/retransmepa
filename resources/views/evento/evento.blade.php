@@ -27,31 +27,31 @@
         @method('PUT')
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" value="{{$event->nombre}}">
+            <input id="nombre" name="nombre" type="text" class="form-control" value="{{$event->nombre}}" disabled>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" class="form-control" value="{{$event->matricula}}">
+            <input id="matricula" name="matricula" type="text" class="form-control" value="{{$event->matricula}}" disabled>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
-            <input id="marca" name="marca" type="text" class="form-control" value="{{$event->marca}}">
+            <input id="marca" name="marca" type="text" class="form-control" value="{{$event->marca}}" disabled>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Modelo</label>
-            <input id="modelo" name="modelo" type="text" class="form-control" value="{{$event->modelo}}">
+            <input id="modelo" name="modelo" type="text" class="form-control" value="{{$event->modelo}}" disabled>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
-            <input id="fecha" name="fecha" type="date" class="form-control" value="{{$event->fecha}}">
+            <input id="fecha" name="fecha" type="date" class="form-control" value="{{$event->fecha}}" disabled>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Hora</label>
-            <input id="hora" name="hora" type="time" class="form-control" value="{{$event->hora}}">
+            <input id="hora" name="hora" type="time" class="form-control" value="{{$event->hora}}" disabled>
         </div>
           <!-- <input type="submit" class="btn btn-info" value="Guardar" action="{{ asset('/Evento/index/') }}"> -->
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger">Borrar</button>
+          <!-- @method('DELETE')
+          <button type="submit" class="btn btn-danger">Borrar</button> -->
         </form>
       </div>
 
@@ -62,7 +62,6 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
     <link href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">

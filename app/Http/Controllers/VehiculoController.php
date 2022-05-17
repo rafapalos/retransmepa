@@ -28,13 +28,16 @@ class VehiculoController extends Controller
     {
         $vehiculos = new Vehiculo();
 
-        $vehiculos-> numVehiculo = $request->get('numVehiculo');
-        $vehiculos-> marca = $request->get('marca');
-        $vehiculos-> modelo = $request->get('modelo');
-        $vehiculos-> matricula = $request->get('matricula');
-        $vehiculos-> empresa = $request->get('empresa');
-        $vehiculos-> estado = $request->get('estado');
-
+        $vehiculos-> numVehiculo          = $request->get('numVehiculo');
+        $vehiculos-> marca                = $request->get('marca');
+        $vehiculos-> modelo               = $request->get('modelo');
+        $vehiculos-> matricula            = $request->get('matricula');
+        $vehiculos-> empresa              = $request->get('empresa');
+        $vehiculos-> estado               = $request->get('estado');
+        $vehiculos-> propiedad            = $request->get('propiedad');
+        $vehiculos-> alquiler             = $request->get('alquiler');
+        $vehiculos-> fechaAlquilerDesde   = $request->get('fechaAlquilerDesde');
+        $vehiculos-> fechaAlquilerHasta   = $request->get('fechaAlquilerHasta');
         $vehiculos->save();
 
         return redirect('/vehiculos');
@@ -56,12 +59,16 @@ class VehiculoController extends Controller
     {
         $vehiculo = Vehiculo::find($id);
 
-        $vehiculo-> numVehiculo = $request->get('numVehiculo');
-        $vehiculo-> marca = $request->get('marca');
-        $vehiculo-> modelo = $request->get('modelo');
-        $vehiculo-> matricula = $request->get('matricula');
-        $vehiculo-> empresa = $request->get('empresa');
-        $vehiculo-> estado = $request->get('estado');
+        $vehiculo-> numVehiculo          = $request->get('numVehiculo');
+        $vehiculo-> marca                = $request->get('marca');
+        $vehiculo-> modelo               = $request->get('modelo');
+        $vehiculo-> matricula            = $request->get('matricula');
+        $vehiculo-> empresa              = $request->get('empresa');
+        $vehiculo-> estado               = $request->get('estado');
+        $vehiculo-> propiedad            = $request->get('propiedad');
+        $vehiculo-> alquiler             = $request->get('alquiler');
+        $vehiculo-> fechaAlquilerDesde   = $request->get('fechaAlquilerDesde');
+        $vehiculo-> fechaAlquilerHasta   = $request->get('fechaAlquilerHasta');
 
         $vehiculo->save();
 
