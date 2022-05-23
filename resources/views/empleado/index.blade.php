@@ -9,7 +9,7 @@
 @section('content')
     <a href="empleados/create" class="btn btn-primary mb-3">Añadir Empleado</a>
 
-    <table id="empleados" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+    <table id="empleados" class="table table-striped table-bordered shadow-lg mt-4 display responsive nowrap" style="width:100%">
         <thead class="bg-primary text-white">
             <tr>
                 <th scope="col">Nº Empleado</th>
@@ -60,6 +60,7 @@
     <script>
     $(document).ready(function() {
         $('#empleados').DataTable({
+            responsive: true,
             "pageLength" : 10,
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',

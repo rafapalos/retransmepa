@@ -10,6 +10,10 @@
     <form action="/empleados" method="POST">
         @csrf
         <div class="mb-3">
+            <label for="" class="form-label">ID</label>
+            <input id="id" name="id" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
             <input id="nombre" name="nombre" type="text" class="form-control" required>
         </div>
@@ -55,11 +59,4 @@
         <a href="/empleados" class="btn btn-secondary">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
 @stop
