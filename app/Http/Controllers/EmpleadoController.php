@@ -19,16 +19,11 @@ class EmpleadoController extends Controller
     }
 
     // Función para añadir empleado
-    public function create()
-    {
+    public function create() {
         return view('empleado.create');
     }
 
-    public function store(Request $request)
-    {
-        // $request->validate([
-        //     'dni' => 'required|unique:empleados'
-        // ]);
+    public function store(Request $request) {
 
         $empleados = new Empleado();
 
