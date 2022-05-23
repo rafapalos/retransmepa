@@ -26,9 +26,9 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'dni' => 'required|unique:empleados'
-        ]);
+        // $request->validate([
+        //     'dni' => 'required|unique:empleados'
+        // ]);
 
         $empleados = new Empleado();
 
