@@ -28,7 +28,7 @@
         <tbody>
             @foreach ($vehiculos as $vehiculo)
             <tr>
-                <td>{{ $vehiculo-> numVehiculo }}</td>
+                <td>{{ $vehiculo-> id }}</td>
                 <td>{{ $vehiculo-> marca }}</td>
                 <td>{{ $vehiculo-> modelo }}</td>
                 <td>{{ $vehiculo-> matricula }}</td>
@@ -72,6 +72,7 @@
     <script>
     $(document).ready(function() {
         $('#vehiculos').DataTable({
+            // "responsive": true,
             "pageLength": 10,
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',

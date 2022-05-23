@@ -52,18 +52,12 @@
         <div class="mb-3">
             <label for="" class="form-label">Empleado a Asignar</label>
             <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" required>
-                <option value="Jose Torre de la Reina">Jose Torre de la Reina</option>
-                <option value="Otros">Otros</option>
+                @foreach ($empleadosLimpiezas as $empleadosLimpiezas)
+                <option value="{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}">{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}</option>
+                @endforeach
             </select>
         </div>
         <a href="/limpiezas" class="btn btn-secondary">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
 @stop

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Limpieza;
+use Illuminate\Support\Facades\DB;
 
 class LimpiezaController extends Controller {
     // Función para cuando aun no te has logueado, no se pueda acceder a las demás páginas.
@@ -18,7 +19,9 @@ class LimpiezaController extends Controller {
 
     // Función para añadir limpieza
     public function create() {
-        return view('limpieza.create');
+        $empleadosLimpiezas = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+
+        return view('limpieza.create', ['empleadosLimpiezas' => $empleadosLimpiezas]);
     }
 
     public function store(Request $request) {

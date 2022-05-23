@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('numRepartidor');
             $table->string('nombre',40);
+            $table->string('matricula',8);
             $table->integer('entregas');
             $table->integer('recogidas');
             $table->integer('incidencias');

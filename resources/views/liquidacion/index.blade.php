@@ -13,6 +13,7 @@
             <tr>
                 <th scope="col">Nº Repartidor</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Matricula</th>
                 <th scope="col">Entregas</th>
                 <th scope="col">Recogidas</th>
                 <th scope="col">Incidencias</th>
@@ -28,6 +29,7 @@
             <tr>
                 <td>{{ $liquidacion-> numRepartidor }}</td>
                 <td>{{ $liquidacion-> nombre }}</td>
+                <td>{{ $liquidacion-> matricula }}</td>
                 <td>{{ $liquidacion-> entregas }}</td>
                 <td>{{ $liquidacion-> recogidas }}</td>
                 <td>{{ $liquidacion-> incidencias }}</td>
@@ -74,6 +76,7 @@
     <script>
     $(document).ready(function() {
         $('#liquidaciones').DataTable({
+            "pageLength": 10,
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             // "dom": 'Bfrtip',

@@ -8,6 +8,11 @@ use App\Models\Event;
 
 class ControllerEvent extends Controller {
     
+    // Función para cuando aun no te has logueado, no se pueda acceder a las demás páginas.
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function form(){
         return view("/evento/form");
     }
@@ -28,7 +33,7 @@ class ControllerEvent extends Controller {
           'matricula'    => $request->input("matricula"),
           'marca'        => $request->input("marca"),
           'modelo'       => $request->input("modelo"),
-          'fecha'       => $request->input("fecha"),
+          'fecha'        => $request->input("fecha"),
           'hora'         => $request->input('hora')
         ]);
   

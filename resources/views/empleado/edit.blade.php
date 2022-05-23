@@ -10,9 +10,9 @@
     <form action="/empleados/{{$empleado->id}}" method="POST">
         @csrf
         @method('PUT')
-        <div class="mb-3">
-            <label for="" class="form-label">Nº Empleado</label>
-            <input id="numEmpleado" name="numEmpleado" type="text" class="form-control" value="{{$empleado->numEmpleado}}">
+        <div class="mb-3" id="divID">
+            <label for="" class="form-label">ID</label>
+            <input id="id" name="id" type="text" class="form-control" value="{{$empleado->id}}">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
@@ -47,13 +47,15 @@
                 <option value="GLS">GLS</option>
                 <option value="SEUR">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
-                <option value="Todas">Todas</option>
+                <option value="LavadosExpress">LavadosExpress</option>
+                <option value="Todas">Todas Transporte</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Cargo</label>
             <select class="form-control" id="cargo" name="cargo">
                 <option value="{{$empleado->cargo}}"></option>
+                <option value="Limpiador">Limpiador</option>
                 <option value="Repartidor">Repartidor</option>
                 <option value="Administrativo">Administrativo</option>
                 <option value="Gerente">Gerente</option>
@@ -69,4 +71,7 @@
 @stop
 
 @section('js')
+<script>
+    $('#divID').hide();
+</script>
 @stop

@@ -7,12 +7,8 @@
 @stop
 
 @section('content')
-    <form action="/vehiculos" method="POST">
+    <form action="/vehiculos" id="formVehiculos" method="POST">
         @csrf
-        <div class="mb-3">
-            <label for="" class="form-label">Nº Vehiculo</label>
-            <input id="numVehiculo" name="numVehiculo" type="number" class="form-control" required>
-        </div>
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
             <input id="marca" name="marca" type="text" class="form-control" required>
@@ -23,7 +19,13 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" class="form-control" required>
+            <input id="matricula" name="matricula" type="text" pattern="[0-9]{4}[-][A-Z]{3}" class="form-control" required>
+            <span class="validity"></span>
+            <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
+            @if ($errors->has('matricula'))
+                <span class="error text-danger" for="input-matricula">La matricula ya está registrada anteriormente</span>
+                <!-- {{ $errors->first('matricula') }} -->
+            @endif
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
@@ -72,10 +74,6 @@
     </form>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
 <script>
     $('#divAlquiler').hide();
@@ -102,5 +100,10 @@
         }
     });
 
+    $('#matricula').keyup(function(){
+        var matricula = $('#matricula').val();
+        console.log(matricula);
+
+    });
 </script>
 @stop

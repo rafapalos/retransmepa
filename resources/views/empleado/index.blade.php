@@ -26,7 +26,7 @@
         <tbody>
             @foreach ($empleados as $empleado)
             <tr>
-                <td>{{ $empleado-> numEmpleado }}</td>
+                <td>{{ $empleado-> id }}</td>
                 <td>{{ $empleado-> nombre }}</td>
                 <td>{{ $empleado-> apellidos }}</td>
                 <td>{{ $empleado-> dni }}</td>
@@ -60,6 +60,7 @@
     <script>
     $(document).ready(function() {
         $('#empleados').DataTable({
+            "pageLength" : 10,
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             "responsive": false,

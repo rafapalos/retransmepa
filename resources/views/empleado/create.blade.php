@@ -10,29 +10,28 @@
     <form action="/empleados" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="" class="form-label">Nº Empleado</label>
-            <input id="numEmpleado" name="numEmpleado" type="number" class="form-control" tabindex="1" required>
-        </div>
-        <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="2" required>
+            <input id="nombre" name="nombre" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Apellidos</label>
-            <input id="apellidos" name="apellidos" type="text" class="form-control" tabindex="3" required>
+            <input id="apellidos" name="apellidos" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
-            <input id="dni" name="dni" type="text" class="form-control" tabindex="4" required>
+            <input id="dni" name="dni" type="text" class="form-control" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" required>
+            @if ($errors->has('dni'))
+                <span class="error text-danger" for="input-dni">El dni ya está registrado anteriormente</span>
+            @endif
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha nacimiento</label>
-            <input id="fechaNacimiento" name="fechaNacimiento" type="date" class="form-control" tabindex="5" required>
+            <input id="fechaNacimiento" name="fechaNacimiento" type="date" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Estado</label>
             <select class="form-control" id="estado" name="estado" required>
-                <option value="Activo">Activo</option>
+                <option value="Activo" selected>Activo</option>
                 <option value="Baja">Baja</option>
                 <option value="Vacaciones">Vacaciones</option>
                 <option value="Inactivo">Inactivo</option>
@@ -41,22 +40,23 @@
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>
             <select class="form-control" id="empresa" name="empresa" required>
-                <option value="GLS">GLS</option>
+                <option value="GLS" selected>GLS</option>
                 <option value="SEUR">SEUR</option>
                 <option value="CorreosExpress">CorreosExpress</option>
-                <option value="Todas">Todas</option>
+                <option value="LavadosExpress">LavadosExpress</option>
+                <option value="Todas">Todas Transporte</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Cargo</label>
             <select class="form-control" id="cargo" name="cargo" required>
-                <option value="Repartidor">Repartidor</option>
+                <option value="Limpiador">Limpiador</option>
+                <option value="Repartidor" selected>Repartidor</option>
                 <option value="Administrativo">Administrativo</option>
-                <option value="Gerente">Gerente</option>
             </select>
         </div>
-        <a href="/empleados" class="btn btn-secondary" tabindex="6">Cancelar</a>
-        <button type="submit" class="btn btn-primary" tabindex="7">Guardar</button>
+        <a href="/empleados" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 @stop
 

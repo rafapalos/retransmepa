@@ -26,4 +26,5 @@ return [
     'verify_request_another'      => 'click here to request another',
     'confirm_password_message'    => 'Por favor confirme su contraseña para continuar.',
     'remember_me_hint'            => 'Keep me authenticated indefinitely or until I manually logout',
+    'unique'                      => 'El campo :attribute ya ha sido tomado.',
 ];

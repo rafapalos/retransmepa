@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
-            $table->integer('numVehiculo');
             $table->string('marca',50);
             $table->string('modelo',50);
-            $table->string('matricula',10);
+            $table->string('matricula',8)->unique();
             $table->string('empresa', 20);
             $table->string('estado', 40);
             $table->string('propiedad', 40);

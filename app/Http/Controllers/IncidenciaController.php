@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Incidencia;
+use Illuminate\Support\Facades\DB;
 
 class IncidenciaController extends Controller {
       // Función para cuando aun no te has logueado, no se pueda acceder a las demás páginas.
@@ -18,7 +19,9 @@ class IncidenciaController extends Controller {
 
     // Función para añadir incidencias
     public function create() {
-        return view('incidencia.create');
+        $empleadosIncidencias = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo'" );
+        
+        return view('incidencia.create', ['empleadosIncidencias' => $empleadosIncidencias]);
     }
 
     public function store(Request $request) {

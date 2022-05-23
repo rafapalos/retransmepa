@@ -11,7 +11,11 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Empleado</label>
-            <input id="nombreEmpleado" name="nombreEmpleado" type="text" class="form-control" required>
+            <select class="form-control" id="nombreEmpleado" name="nombreEmpleado" required>
+                @foreach ($empleadosIncidencias as $empleadosIncidencias)
+                <option value="{{$empleadosIncidencias->nombre}} {{$empleadosIncidencias->apellidos}}">{{$empleadosIncidencias->nombre}} {{$empleadosIncidencias->apellidos}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Sector</label>

@@ -19,16 +19,20 @@ class VehiculoController extends Controller
     }
 
     // Función para añadir vehiculo
-    public function create()
-    {
+    public function create() {
+        
         return view('vehiculo.create');
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'matricula' => 'required|unique:vehiculos'
+        ]);
+
         $vehiculos = new Vehiculo();
 
-        $vehiculos-> numVehiculo          = $request->get('numVehiculo');
+        $vehiculos-> id                   = $request->get('id');
         $vehiculos-> marca                = $request->get('marca');
         $vehiculos-> modelo               = $request->get('modelo');
         $vehiculos-> matricula            = $request->get('matricula');
@@ -59,7 +63,7 @@ class VehiculoController extends Controller
     {
         $vehiculo = Vehiculo::find($id);
 
-        $vehiculo-> numVehiculo          = $request->get('numVehiculo');
+        $vehiculo-> id                   = $request->get('id');
         $vehiculo-> marca                = $request->get('marca');
         $vehiculo-> modelo               = $request->get('modelo');
         $vehiculo-> matricula            = $request->get('matricula');

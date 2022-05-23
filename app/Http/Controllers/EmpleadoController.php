@@ -12,8 +12,8 @@ class EmpleadoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-    {
+    public function index() {
+
         $empleados = Empleado::all();
         return view('empleado.index')->with('empleados', $empleados);
     }
@@ -26,9 +26,13 @@ class EmpleadoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'dni' => 'required|unique:empleados'
+        ]);
+
         $empleados = new Empleado();
 
-        $empleados-> numEmpleado = $request->get('numEmpleado');
+        $empleados-> id = $request->get('id');
         $empleados-> nombre = $request->get('nombre');
         $empleados-> apellidos = $request->get('apellidos');
         $empleados-> dni = $request->get('dni');
@@ -58,7 +62,7 @@ class EmpleadoController extends Controller
     {
         $empleado = Empleado::find($id);
 
-        $empleado-> numEmpleado = $request->get('numEmpleado');
+        $empleado-> id = $request->get('id');
         $empleado-> nombre = $request->get('nombre');
         $empleado-> apellidos = $request->get('apellidos');
         $empleado-> dni = $request->get('dni');

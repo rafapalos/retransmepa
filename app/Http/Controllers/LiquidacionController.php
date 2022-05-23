@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Liquidacion;
+use Illuminate\Support\Facades\DB;
 
 class LiquidacionController extends Controller {
     // Función para cuando aun no te has logueado, no se pueda acceder a las demás páginas.
@@ -18,7 +19,10 @@ class LiquidacionController extends Controller {
 
     // Función para añadir
     public function create() {
-        return view('liquidacion.create');
+        $empleadosLiquidaciones = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo = 'Repartidor'" );
+        $vehiculosLiquidaciones = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo'" );
+        
+        return view('liquidacion.create', ['empleadosLiquidaciones' => $empleadosLiquidaciones], ['vehiculosLiquidaciones' => $vehiculosLiquidaciones]);
     }
 
     public function store(Request $request) {
@@ -26,6 +30,7 @@ class LiquidacionController extends Controller {
 
         $liquidaciones-> numRepartidor = $request->get('numRepartidor');
         $liquidaciones-> nombre = $request->get('nombre');
+        $liquidaciones-> matricula = $request->get('matricula');
         $liquidaciones-> entregas = $request->get('entregas');
         $liquidaciones-> recogidas = $request->get('recogidas');
         $liquidaciones-> incidencias = $request->get('incidencias');
@@ -54,6 +59,7 @@ class LiquidacionController extends Controller {
 
         $liquidacion-> numRepartidor = $request->get('numRepartidor');
         $liquidacion-> nombre = $request->get('nombre');
+        $liquidacion-> matricula = $request->get('matricula');
         $liquidacion-> entregas = $request->get('entregas');
         $liquidacion-> recogidas = $request->get('recogidas');
         $liquidacion-> incidencias = $request->get('incidencias');

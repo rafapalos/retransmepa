@@ -15,14 +15,26 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" required>
+            <select class="form-control" id="nombre" name="nombre" required>
+                @foreach ($empleadosLiquidaciones as $empleadosLiquidacion)
+                <option value="{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}">{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Matricula</label>
+            <select class="form-control" id="matricula" name="matricula" required>
+                @foreach ($vehiculosLiquidaciones as $vehiculosLiquidacion)
+                <option value="{{$vehiculosLiquidacion->matricula}}">{{$vehiculosLiquidacion->matricula}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Entregas</label>
             <input id="entregas" name="entregas" type="number" min="1" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Recogidas</label>
+            <label for="" class="form-label">Recojidas</label>
             <input id="recogidas" name="recogidas" type="number" min="0" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
@@ -32,13 +44,14 @@
         <div class="mb-3">
             <label for="" class="form-label">Dia trabajado</label>
             <select class="form-control" id="diaTrabajado" name="diaTrabajado" required>
+                <option value=""></option>
                 <option value="Dia Completo">Dia Completo</option>
                 <option value="Festivo">Festivo</option>
                 <option value="Normal">Normal</option>
             </select>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Dinero</label>
+            <label for="" class="form-label">Sueldo diario</label>
             <input id="dinero" name="dinero" type="text" class="form-control" required>
         </div>
         <div class="mb-3">
@@ -58,9 +71,39 @@
     </form>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
+<script>
+    $('#entregas, #recogidas').keyup(function(){
+        var entregas = $('#entregas').val();
+        var recogidas = $('#recogidas').val();
+    });
+
+
+    if ($("#diaTrabajado").val() == "") {
+        $('#dinero').val('0');
+    }
+
+    $(document).off('change', '#diaTrabajado').on('change', '#diaTrabajado', function() {
+        if ($("#diaTrabajado").val() == "Dia Completo") {
+            $('#dinero').val('50');
+        } else if ($("#diaTrabajado").val() == "Festivo") {
+            let festivo = '0.90';
+
+            let subTotal = parseInt($('#entregas').val()) + parseInt($('#recogidas').val());
+            let total = parseInt(subTotal) * parseFloat(festivo);
+            let totalRedondeado = total.toFixed(2);
+
+            $('#dinero').val(totalRedondeado);
+        } else if ($("#diaTrabajado").val() == "Normal") {
+            let normal = '0.80';
+
+            let subTotal = parseInt($('#entregas').val()) + parseInt($('#recogidas').val());
+            let total = parseInt(subTotal) * parseFloat(normal);
+            let totalRedondeado = total.toFixed(2);
+
+            $('#dinero').val(totalRedondeado);
+        }
+    });
+
+</script>
 @stop

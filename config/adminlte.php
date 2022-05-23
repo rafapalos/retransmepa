@@ -181,12 +181,6 @@ return [
         ],
         ['header' => 'Transporte'],
         [
-            'text'        => 'Empleados',
-            'url'         => 'empleados',
-            'icon'        => 'far fa-fw fa-user',
-            'label_color' => 'warning',
-        ],
-        [
             'text'        => 'Vehículos',
             'url'         => 'vehiculos',
             'icon'        => 'fa fa-fw fa-car',
@@ -199,6 +193,12 @@ return [
             'label_color' => 'warning',
         ],
         ['header' => 'Empresa'],
+        [
+            'text'        => 'Empleados',
+            'url'         => 'empleados',
+            'icon'        => 'far fa-fw fa-user',
+            'label_color' => 'warning',
+        ],
         [
             'text'        => 'Incidencias',
             'url'         => 'incidencias',
