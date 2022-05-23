@@ -10,6 +10,13 @@
     <form action="/vehiculos" id="formVehiculos" method="POST">
         @csrf
         <div class="mb-3">
+            <label for="" class="form-label">ID</label>
+            <input id="id" name="id" type="text" class="form-control" required>
+            @if ($errors->has('id'))
+                <span class="error text-danger" for="input-id">El id ya está registrado anteriormente</span>
+            @endif
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Marca</label>
             <input id="marca" name="marca" type="text" class="form-control" required>
         </div>
@@ -24,7 +31,6 @@
             <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
             @if ($errors->has('matricula'))
                 <span class="error text-danger" for="input-matricula">La matricula ya está registrada anteriormente</span>
-                <!-- {{ $errors->first('matricula') }} -->
             @endif
         </div>
         <div class="mb-3">

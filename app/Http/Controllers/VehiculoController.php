@@ -27,6 +27,7 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id'        => 'required|unique:vehiculos',
             'matricula' => 'required|unique:vehiculos'
         ]);
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('marca',50);
             $table->string('modelo',50);
-            $table->string('matricula',8)->unique();
+            $table->string('matricula',8);
             $table->string('empresa', 20);
             $table->string('estado', 40);
             $table->string('propiedad', 40);
