@@ -12,6 +12,9 @@
         <div class="mb-3">
             <label for="" class="form-label">ID</label>
             <input id="id" name="id" type="text" class="form-control" required>
+            @if ($errors->has('id'))
+                <span class="error text-danger" for="input-id">El id ya está registrado anteriormente</span>
+            @endif
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
@@ -24,6 +27,9 @@
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
             <input id="dni" name="dni" type="text" class="form-control" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" required>
+            @if ($errors->has('dni'))
+                <span class="error text-danger" for="input-dni">El dni ya está registrado anteriormente</span>
+            @endif
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha nacimiento</label>
