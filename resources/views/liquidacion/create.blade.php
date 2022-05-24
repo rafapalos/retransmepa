@@ -34,7 +34,7 @@
             <input id="entregas" name="entregas" type="number" min="1" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Recojidas</label>
+            <label for="" class="form-label">Recogidas</label>
             <input id="recogidas" name="recogidas" type="number" min="0" max="300" class="form-control" required>
         </div>
         <div class="mb-3">
@@ -73,20 +73,17 @@
 
 @section('js')
 <script>
-    $('#entregas, #recogidas').keyup(function(){
-        var entregas = $('#entregas').val();
-        var recogidas = $('#recogidas').val();
-    });
-
 
     if ($("#diaTrabajado").val() == "") {
         $('#dinero').val('0');
-    }
+    } 
 
-    $(document).off('change', '#diaTrabajado').on('change', '#diaTrabajado', function() {
-        if ($("#diaTrabajado").val() == "Dia Completo") {
+    $("#diaTrabajado, #entregas, #recogidas").bind("change keyup", function(event){
+        var diaTrabajado = $('#diaTrabajado').val();
+
+        if (diaTrabajado == 'Dia Completo') {
             $('#dinero').val('50');
-        } else if ($("#diaTrabajado").val() == "Festivo") {
+        } else if (diaTrabajado == 'Festivo'){
             let festivo = '0.90';
 
             let subTotal = parseInt($('#entregas').val()) + parseInt($('#recogidas').val());
@@ -94,7 +91,14 @@
             let totalRedondeado = total.toFixed(2);
 
             $('#dinero').val(totalRedondeado);
-        } else if ($("#diaTrabajado").val() == "Normal") {
+
+            if ($("#entregas").val() == "") {
+                $('#dinero').val('0');
+            } else if ($("#recogidas").val() == "") {
+                $('#dinero').val('0');
+            }
+
+        } else if (diaTrabajado == 'Normal') {
             let normal = '0.80';
 
             let subTotal = parseInt($('#entregas').val()) + parseInt($('#recogidas').val());
@@ -102,8 +106,13 @@
             let totalRedondeado = total.toFixed(2);
 
             $('#dinero').val(totalRedondeado);
+
+            if ($("#entregas").val() == "") {
+                $('#dinero').val('0');
+            } else if ($("#recogidas").val() == "") {
+                $('#dinero').val('0');
+            }
         }
     });
-
 </script>
 @stop
