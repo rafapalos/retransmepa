@@ -26,7 +26,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
-            <input id="dni" name="dni" type="text" class="form-control" pattern="[0-9]{8}[A-Za-z]{1}" title="Debe poner 8 números y una letra" required>
+            <input id="dni" name="dni" type="text" class="form-control" pattern="[0-9]{8}[A-Z]{1}" title="Debe poner 8 números y una letra en mayúsculas" required>
             @if ($errors->has('dni'))
                 <span class="error text-danger" for="input-dni">El dni ya está registrado anteriormente</span>
             @endif
@@ -65,4 +65,27 @@
         <a href="/empleados" class="btn btn-secondary">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+@stop
+@section('js')
+<script>
+    $("#empresa").bind("change keyup", function(event){
+        var empresa = $('#empresa').val();
+
+        if (empresa == 'LavadosExpress') {
+            $('#cargo').val('Limpiador');
+        } else {
+            $('#cargo').val('Repartidor');
+        }
+    });
+
+    $("#cargo").bind("change keyup", function(event){
+        var cargo = $('#cargo').val();
+
+        if (cargo == 'Limpiador') {
+            $('#empresa').val('LavadosExpress');
+        } else {
+            $('#empresa').val('GLS');
+        }
+    });
+</script>
 @stop

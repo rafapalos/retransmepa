@@ -69,13 +69,7 @@
           <input type="submit" class="btn btn-info" value="Guardar">
         </form>
       </div>
-
-
-      <!-- inicio de semana -->
-
-
-    </div> <!-- /container -->
-
+    </div>
   </body>
 </html>
 @stop

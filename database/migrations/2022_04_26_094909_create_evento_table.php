@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('modelo',40);
             $table->date('fecha');
             $table->time('hora');
-            $table->timestamps();
         });
     }
 

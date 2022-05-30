@@ -52,38 +52,24 @@
 @stop
 
 @section('css')
-<!-- DataTables -->
-<link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.3/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.6/sb-1.3.3/sp-2.0.1/sl-1.4.0/sr-1.1.1/datatables.min.css"/> -->
-<!-- <link href="https://cdn.datatables.net/1.10.0/css/jquery.dataTables.min.css" rel="stylesheet"/> -->
-
+<!-- DataTables responsive con buttons-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.3/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.6/sb-1.3.3/sp-2.0.1/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
 @stop
 
 @section('js')
-<!-- DataTables -->
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-
-<!-- Buttons -->
-<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.53/build/pdfmake.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<!-- DataTables responsive con buttons-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.3/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.6/sb-1.3.3/sp-2.0.1/sl-1.4.0/sr-1.1.1/datatables.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        // $('#liquidaciones thead th').each(function() {
-        //     var title = $(this).text();
-        //     $(this).html(title + ' <input type="text" class="col-search-input" placeholder="Buscar" />');
-        // });
-
         var table = $('#liquidaciones').DataTable({
             "pageLength": 10,
             "lengthMenu": [
-                [5, 10, 50, -1],
-                [5, 10, 50, "Todos"]
+                [5, 10, 50, -1],[5, 10, 50, "Todos"]
             ],
+            "info": false,
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             "responsive": true,
             language: {
@@ -106,33 +92,32 @@
                     "previous": "Anterior"
                 }
             },
-            "buttons": [{
-                // Botón para Excel
-                extend: 'excel',
-                footer: true,
-                filename: 'RegistroLimpiezas',
-                className: 'btn btn-success'
-            }, {
-                // Botón para Pdf
-                extend: 'pdf',
-                filename: 'RegistroLimpiezas',
-                className: 'btn btn-danger'
-            }, {
-                // Botón para imprimir
-                extend: 'print',
-                className: 'btn btn-warning'
-            }]
+            "buttons": [
+                {
+                    extend: 'collection',
+                    text: 'Colección',
+                    className: 'custom-html-collection',
+                    buttons: [{
+                        // Botón para Excel
+                        extend: 'excel',
+                        text: 'Exportar a excel',
+                        filename: 'RegistroLimpiezas'
+                    }, {
+                        // Botón para Pdf
+                        extend: 'pdf',
+                        text: 'Exportar a pdf',
+                        filename: 'RegistroLimpiezas'
+                    }, {
+                        // Botón para imprimir
+                        extend: 'print',
+                        text: 'Imprimir'
+                    },{
+                        extend: 'colvis',
+                        text: 'Columnas Visibles'
+                    }]
+                }
+            ]
         });
-
-        // table.columns().every(function() {
-        // var table = this;
-        //     $('input', this.header()).on('keyup change', function() {
-        //         if (table.search() !== this.value) {
-        //             table.search(this.value).draw();
-        //         }
-        //     });
-        // });
-
     });
 </script>
 @stop

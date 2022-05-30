@@ -49,9 +49,10 @@
             <label for="" class="form-label">Hora</label>
             <input id="hora" name="hora" type="time" class="form-control" value="{{$event->hora}}" disabled>
         </div>
-          <!-- <input type="submit" class="btn btn-info" value="Guardar" action="{{ asset('/Evento/index/') }}"> -->
-          <!-- @method('DELETE')
-          <button type="submit" class="btn btn-danger">Borrar</button> -->
+          @csrf
+          <!-- <a href = 'update/{{$event->nombre}}/{{$event->matricula}}/{{$event->marca}}/{{$event->modelo}}/{{$event->fecha}}/{{$event->hora}}' class="btn btn-success">Guardar</a> -->
+          @method('DELETE')
+          <a href = 'delete/{{$event->nombre}}/{{$event->matricula}}/{{$event->marca}}/{{$event->modelo}}/{{$event->fecha}}/{{$event->hora}}' class="btn btn-danger">Borrar</a>
         </form>
       </div>
 

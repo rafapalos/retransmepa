@@ -58,7 +58,6 @@
                 <option value="Limpiador">Limpiador</option>
                 <option value="Repartidor">Repartidor</option>
                 <option value="Administrativo">Administrativo</option>
-                <option value="Gerente">Gerente</option>
             </select>
         </div>
         <a href="/empleados" class="btn btn-secondary">Cancelar</a>

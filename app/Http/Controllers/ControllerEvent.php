@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\DB;
 
 class ControllerEvent extends Controller {
     
@@ -47,16 +48,27 @@ class ControllerEvent extends Controller {
         
         return view("evento/evento",["event" => $event]);
   
-      } 
+      }
+      
+    //   public function update($nombre, $matricula, $marca, $modelo, $fecha, $hora) {
+    //     DB::update("UPDATE evento 
+    //                 SET nombre = '$nombre', matricula = '$matricula', marca = '$marca', modelo = '$modelo', fecha = '$fecha', hora = '$hora';");
 
-      // public function destroy($id) {
+    //     return redirect('/Evento/index'); 
+    // }
 
-      //     $event = Event::find($id);
+      public function destroy($nombre, $matricula, $marca, $modelo, $fecha, $hora) {
+        DB::delete("DELETE 
+                      FROM evento 
+                      WHERE nombre = '$nombre' 
+                      AND matricula = '$matricula' 
+                      AND marca = '$marca'
+                      AND modelo = '$modelo'
+                      AND fecha = '$fecha'
+                      AND hora = '$hora'" );
 
-      //     $event->delete();
-
-      //     return redirect()->route('/evento/form')->with('success', 'Evento borrado correctamente');
-      // }
+        return redirect('/Evento/form');
+      }
 
       public function index(){
 
