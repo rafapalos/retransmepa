@@ -48,8 +48,10 @@ class LimpiezaController extends Controller {
 
     // Función para el botón de editar del dataTables
     public function edit($id) {
+        $empleadoEdit = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'");
+
         $limpieza = Limpieza::find($id);
-        return view('limpieza.edit')->with('limpieza',$limpieza);
+        return view('limpieza.edit', ['empleadoEdit' => $empleadoEdit])->with('limpieza',$limpieza);
     }
 
     public function update(Request $request, $id)

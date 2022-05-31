@@ -51,6 +51,10 @@ class EmpleadoController extends Controller
     }
 
     public function update(Request $request, $id) {
+        // $request->validate([
+        //     'dni' => 'required|unique:empleados'
+        // ]);
+
         $empleado = Empleado::find($id);
 
         $empleado-> id = $request->get('id');

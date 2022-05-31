@@ -56,7 +56,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
-            <input id="fecha" name="fecha" type="date" class="form-control" min="2022-01-01" required>
+            <input id="fecha" name="fecha" type="date" class="form-control" min="2022-01-01" max="2050-01-01" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Código Postal Repartido</label>

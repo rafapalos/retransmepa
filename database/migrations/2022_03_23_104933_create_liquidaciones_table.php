@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('recogidas');
             $table->integer('incidencias');
             $table->string('diaTrabajado',40);
-            $table->string('dinero',10);
+            $table->decimal('dinero',4,2);
             $table->date('fecha');
             $table->string('codPostal',40);
             $table->timestamps();

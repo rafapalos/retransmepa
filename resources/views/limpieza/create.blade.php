@@ -43,11 +43,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="text" class="form-control" required>
+            <input id="precio" name="precio" type="number" step="any" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Limpieza</label>
-            <input id="fechaLimpieza" name="fechaLimpieza" type="date" class="form-control" required>
+            <input id="fechaLimpieza" name="fechaLimpieza" type="date" min="2022-01-01" max="2050-01-01" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empleado a Asignar</label>

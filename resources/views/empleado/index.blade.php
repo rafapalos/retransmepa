@@ -65,7 +65,7 @@
             "lengthMenu": [[5, 10, 50, -1], [5, 10, 50, "Todos"]],
             "info": false,
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
-            language: {
+            "language": {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",

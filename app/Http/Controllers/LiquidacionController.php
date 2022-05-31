@@ -19,8 +19,8 @@ class LiquidacionController extends Controller {
 
     // Función para añadir
     public function create() {
-        $empleadosLiquidaciones = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo = 'Repartidor'" );
-        $vehiculosLiquidaciones = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo'" );
+        $empleadosLiquidaciones = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'GLS' AND cargo = 'Repartidor'" );
+        $vehiculosLiquidaciones = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
         
         return view('liquidacion.create', ['empleadosLiquidaciones' => $empleadosLiquidaciones], ['vehiculosLiquidaciones' => $vehiculosLiquidaciones]);
     }
@@ -44,14 +44,13 @@ class LiquidacionController extends Controller {
         return redirect('/liquidaciones');
     }
 
-    public function show($id) {
-        //
-    }
-
     // Función para el botón de editar del dataTables
     public function edit($id) {
+        $matriculaEdit = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
+
         $liquidacion = Liquidacion::find($id);
-        return view('liquidacion.edit')->with('liquidacion',$liquidacion);
+
+        return view('liquidacion.edit', ['matriculaEdit' => $matriculaEdit])->with('liquidacion',$liquidacion);
     }
 
     public function update(Request $request, $id) {

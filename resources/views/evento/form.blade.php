@@ -43,27 +43,27 @@
           @csrf
           <div class="fomr-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" name="nombre">
+            <input type="text" class="form-control" name="nombre" required>
           </div>
           <div class="fomr-group">
             <label>Matricula</label>
-            <input type="text" class="form-control" name="matricula">
+            <input type="text" class="form-control" name="matricula" required>
           </div>
           <div class="fomr-group">
             <label>Marca</label>
-            <input type="text" class="form-control" name="marca">
+            <input type="text" class="form-control" name="marca" required>
           </div>
           <div class="fomr-group">
             <label>Modelo</label>
-            <input type="text" class="form-control" name="modelo">
+            <input type="text" class="form-control" name="modelo" required>
           </div>
           <div class="fomr-group">
             <label>Fecha</label>
-            <input type="date" class="form-control" name="fecha">
+            <input type="date" class="form-control" name="fecha" required>
           </div>
           <div class="fomr-group">
             <label>Hora</label>
-            <input type="time" min="06:00" max="22:00" class="form-control" name="hora">
+            <input type="time" min="06:00" max="22:00" step="600" class="form-control" name="hora" required>
           </div>
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">

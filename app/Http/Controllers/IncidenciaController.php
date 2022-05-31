@@ -19,9 +19,10 @@ class IncidenciaController extends Controller {
 
     // Función para añadir incidencias
     public function create() {
-        $empleadosIncidencias = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo'" );
-        
-        return view('incidencia.create', ['empleadosIncidencias' => $empleadosIncidencias]);
+        $empleadosIncidenciasTransporte = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
+        $empleadosIncidenciasLavadero = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+
+        return view('incidencia.create', ['empleadosIncidenciasTransporte' => $empleadosIncidenciasTransporte, 'empleadosIncidenciasLavadero' => $empleadosIncidenciasLavadero]);
     }
 
     public function store(Request $request) {
@@ -45,12 +46,16 @@ class IncidenciaController extends Controller {
 
     // Función para el botón de editar del dataTables
     public function edit($id) {
+        $empleadosIncidenciasTransporte = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
+        $empleadosIncidenciasLavadero = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+
         $incidencia = Incidencia::find($id);
-        return view('incidencia.edit')->with('incidencia',$incidencia);
+
+        return view('incidencia.edit', ['empleadosIncidenciasTransporte' => $empleadosIncidenciasTransporte, 'empleadosIncidenciasLavadero' => $empleadosIncidenciasLavadero])->with('incidencia',$incidencia);
+        // return view('incidencia.edit')->with('incidencia',$incidencia);
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $incidencia = Incidencia::find($id);
 
         $incidencia-> nombreEmpleado = $request->get('nombreEmpleado');

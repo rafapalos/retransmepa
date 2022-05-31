@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehiculo;
 
-class VehiculoController extends Controller
-{
+class VehiculoController extends Controller {
     // Función para cuando aun no te has logueado, no se pueda acceder a las demás páginas.
     public function __construct(){
         $this->middleware('auth');
@@ -20,12 +19,10 @@ class VehiculoController extends Controller
 
     // Función para añadir vehiculo
     public function create() {
-        
         return view('vehiculo.create');
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $request->validate([
             'id'        => 'required|unique:vehiculos',
             'matricula' => 'required|unique:vehiculos'
@@ -64,7 +61,7 @@ class VehiculoController extends Controller
     {
         $vehiculo = Vehiculo::find($id);
 
-        $vehiculo-> id                   = $request->get('id');
+        // $vehiculo-> id                   = $request->get('id');
         $vehiculo-> marca                = $request->get('marca');
         $vehiculo-> modelo               = $request->get('modelo');
         $vehiculo-> matricula            = $request->get('matricula');
