@@ -12,6 +12,7 @@
     <table id="limpiezas" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
         <thead class="bg-primary text-white">
             <tr>
+                <th scope="col">Nº Limpieza</th>
                 <th scope="col">Nombre del cliente</th>
                 <th scope="col">Matricula</th>
                 <th scope="col">Marca</th>
@@ -27,6 +28,7 @@
         <tbody>
             @foreach ($limpiezas as $limpieza)
             <tr>
+                <td>{{ $limpieza-> id }}</td>
                 <td>{{ $limpieza-> nombreCliente }}</td>
                 <td>{{ $limpieza-> matricula }}</td>
                 <td>{{ $limpieza-> marca }}</td>
