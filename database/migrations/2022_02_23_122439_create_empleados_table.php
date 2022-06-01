@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('empresa',40);
             $table->string('cargo',20);
             $table->timestamps();
-
         });
     }
 
