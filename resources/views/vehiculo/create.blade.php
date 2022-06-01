@@ -9,13 +9,13 @@
 @section('content')
     <form action="/vehiculos" id="formVehiculos" method="POST">
         @csrf
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="" class="form-label">ID</label>
             <input id="id" name="id" type="text" class="form-control" value="{{old('id')}}" required>
             @if ($errors->has('id'))
                 <span class="error text-danger" for="input-id">El id ya está registrado anteriormente</span>
             @endif
-        </div>
+        </div> -->
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
             <input id="marca" name="marca" type="text" class="form-control" value="{{old('marca')}}" required>

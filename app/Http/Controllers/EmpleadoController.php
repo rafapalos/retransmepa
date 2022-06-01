@@ -57,7 +57,7 @@ class EmpleadoController extends Controller
 
         $empleado = Empleado::find($id);
 
-        $empleado-> id = $request->get('id');
+        // $empleado-> id = $request->get('id');
         $empleado-> nombre = $request->get('nombre');
         $empleado-> apellidos = $request->get('apellidos');
         $empleado-> dni = $request->get('dni');
