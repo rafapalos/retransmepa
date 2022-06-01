@@ -24,6 +24,7 @@
         <tbody>
             @foreach ($incidencias as $incidencia)
             <tr>
+                <td>{{ $incidencia-> id }}</td>
                 <td>{{ $incidencia-> nombreEmpleado }}</td>
                 <td>{{ $incidencia-> sector }}</td>
                 <td>{{ $incidencia-> descripcion }}</td>

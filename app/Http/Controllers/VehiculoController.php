@@ -24,13 +24,14 @@ class VehiculoController extends Controller {
 
     public function store(Request $request) {
         $request->validate([
-            'id'        => 'required|unique:vehiculos',
+            // 'id'        => 'required|unique:vehiculos',
             'matricula' => 'required|unique:vehiculos'
         ]);
 
         $vehiculos = new Vehiculo();
 
         $vehiculos-> id                   = $request->get('id');
+
         $vehiculos-> marca                = $request->get('marca');
         $vehiculos-> modelo               = $request->get('modelo');
         $vehiculos-> matricula            = $request->get('matricula');
