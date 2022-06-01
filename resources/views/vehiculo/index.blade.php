@@ -12,7 +12,7 @@
     <table id="vehiculos" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
         <thead class="bg-primary text-white">
             <tr>
-                <th scope="col">Nº Vehiculo</th>
+                <th scope="col">Nº Vehículo</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Matricula</th>

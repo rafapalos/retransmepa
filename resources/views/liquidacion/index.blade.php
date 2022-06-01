@@ -11,7 +11,7 @@
 <table id="liquidaciones" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="bg-primary text-white">
         <tr>
-            <th scopte="col">ID</th>
+            <th scopte="col">Nº Liquidación</th>
             <th scope="col">Nº Repartidor</th>
             <th scope="col">Nombre</th>
             <th scope="col">Matricula</th>

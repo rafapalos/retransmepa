@@ -12,6 +12,7 @@
     <table id="incidencias" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
         <thead class="bg-primary text-white">
             <tr>
+                <th scope="col">Nº Incidencia</th>
                 <th scope="col">Nombre del empleado</th>
                 <th scope="col">Sector</th>
                 <th scope="col">Descripción</th>
