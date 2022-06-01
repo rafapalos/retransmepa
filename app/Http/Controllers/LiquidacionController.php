@@ -27,7 +27,7 @@ class LiquidacionController extends Controller {
 
     public function store(Request $request) {
         $liquidaciones = new Liquidacion();
-
+        
         $liquidaciones-> numRepartidor = $request->get('numRepartidor');
         $liquidaciones-> nombre = $request->get('nombre');
         $liquidaciones-> matricula = $request->get('matricula');

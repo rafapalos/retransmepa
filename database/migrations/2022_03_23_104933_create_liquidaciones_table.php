@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('liquidacions', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('numRepartidor');
             $table->string('nombre',40);
             $table->string('matricula',8);
