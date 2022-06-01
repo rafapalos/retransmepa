@@ -30,7 +30,7 @@ class VehiculoController extends Controller {
 
         $vehiculos = new Vehiculo();
 
-        $vehiculos-> id                   = $request->get('id');
+        // $vehiculos-> id                   = $request->get('id');
 
         $vehiculos-> marca                = $request->get('marca');
         $vehiculos-> modelo               = $request->get('modelo');
@@ -63,6 +63,7 @@ class VehiculoController extends Controller {
         $vehiculo = Vehiculo::find($id);
 
         // $vehiculo-> id                   = $request->get('id');
+        
         $vehiculo-> marca                = $request->get('marca');
         $vehiculo-> modelo               = $request->get('modelo');
         $vehiculo-> matricula            = $request->get('matricula');
