@@ -30,7 +30,7 @@ class EmpleadoController extends Controller
 
         $empleados = new Empleado();
 
-        $empleados-> id = $request->get('id');
+        // $empleados-> id = $request->get('id');
         $empleados-> nombre = $request->get('nombre');
         $empleados-> apellidos = $request->get('apellidos');
         $empleados-> dni = $request->get('dni');
