@@ -44,7 +44,7 @@
                     <a href="/liquidaciones/{{ $liquidacion-> id }}/edit" class="btn btn-info">Editar</a>
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger">Borrar</button>
+                    <button class="btn btn-danger functionDelete">Borrar</button>
                 </form>
             </td>
         </tr>
@@ -59,6 +59,8 @@
 @stop
 
 @section('js')
+<!-- SweetAlert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!-- DataTables responsive con buttons-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
@@ -66,6 +68,38 @@
 
 <script>
     $(document).ready(function() {
+        $('.functionDelete').click(function(event) {
+            var form = $(this).closest("form");
+
+            event.preventDefault();
+
+            swal({
+                title: "¿Estás seguro de que desea eliminar este registro?",
+                text: "Si eliminas esto, desaparecerá para siempre.",
+                icon: "warning",
+                type: "warning",
+                buttons: ["Cancelar", "Si"],
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, bórralo!'
+            }).then((result) => {
+                if (result) {
+                    form.submit();
+                    swal(
+                        'Borrado',
+                        'El registro ha sido borrado.',
+                        'success'
+                    )
+                } else {
+                    swal(
+                        'Cancelado',
+                        'El registro no ha sido borrado.',
+                        'error'
+                    )
+                }
+            });
+        });
+
         var table = $('#liquidaciones').DataTable({
             "pageLength": 10,
             "lengthMenu": [

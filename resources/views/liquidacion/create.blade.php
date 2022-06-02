@@ -112,6 +112,8 @@
             } else if ($("#recogidas").val() == "") {
                 $('#dinero').val('0');
             }
+        } else if (diaTrabajado == '') {
+            $('#dinero').val('0');
         }
     });
 </script>

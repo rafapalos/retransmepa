@@ -44,8 +44,8 @@
             <select class="form-control" id="diaTrabajado" name="diaTrabajado" required>
                 <option class="optionValueDiaTrabajado" value="{{$liquidacion->diaTrabajado}}">{{$liquidacion->diaTrabajado}}</option>
                 <option class="optionDiaCompleto" value="Dia Completo">Dia Completo</option>
-                <option value="optionFestivo">Festivo</option>
-                <option value="optionNormal">Normal</option>
+                <option class="optionFestivo" value="Festivo">Festivo</option>
+                <option class="optionNormal" value="Normal">Normal</option>
             </select>
         </div>
         <div class="mb-3">
@@ -73,7 +73,7 @@
 @section('js')
 <script>
 
-    if ($("#diaTrabajado").val() == "") {
+    if ($("#optionValueDiaTrabajado").val() == "") {
         $('#dinero').val('0');
     } 
 
@@ -124,13 +124,13 @@
         $('.optionFestivo').show();
         $('.optionNormal').show();
     } else if (optionDiaTrabajado == 'Festivo') {
+        $('.optionValueDiaTrabajado').hide();
         $('.optionDiaCompleto').show();
-        $('.optionFestivo').hide();
         $('.optionNormal').show();
     } else if (optionDiaTrabajado == 'Normal') {
         $('.optionDiaCompleto').show();
         $('.optionFestivo').show();
-        $('.optionNormal').hide();
+        $('.optionValueDiaTrabajado').hide();
     }
 
     // SELECT CODIGO POSTAL

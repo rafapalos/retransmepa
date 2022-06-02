@@ -54,7 +54,7 @@
         </div>
         <div class="mb-3" id="divAlquiler">
             <label for="" class="form-label">Alquiler</label>
-            <select class="form-control" id="alquiler" name="alquiler" required>
+            <select class="form-control" id="alquiler" name="alquiler">
                 <option class="optionValueAlquiler" value="{{$vehiculo->alquiler}}">{{$vehiculo->alquiler}}</option>
                 <option class="optionNorthgate" value="Northgate">Northgate</option>
                 <option class="optionPinveco" value="Pinveco">Pinveco</option>
@@ -64,11 +64,11 @@
         </div>
         <div class="mb-3" id="divFechaAlquilerDesde">
             <label for="" class="form-label">Fecha Desde Alquiler</label>
-            <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" type="date" class="form-control" min="2020-01-01" max="2050-01-01" value="{{$vehiculo->fechaAlquilerDesde}}" required>
+            <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" type="date" class="form-control" min="2020-01-01" max="2050-01-01" value="{{$vehiculo->fechaAlquilerDesde}}">
         </div>
         <div class="mb-3" id="divFechaAlquilerHasta">
             <label for="" class="form-label">Fecha Hasta Alquiler</label>
-            <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" type="date" class="form-control" min="2020-01-01" max="2050-01-01" value="{{$vehiculo->fechaAlquilerHasta}}" required>
+            <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" type="date" class="form-control" min="2020-01-01" max="2050-01-01" value="{{$vehiculo->fechaAlquilerHasta}}">
         </div>
         <a href="/vehiculos" class="btn btn-secondary">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>

@@ -80,6 +80,7 @@
     body{
       font-family: 'Exo', sans-serif;
     }
+    
     .header-col{
       background: #E3E9E5;
       color:#536170;
@@ -87,18 +88,22 @@
       font-size: 20px;
       font-weight: bold;
     }
+
     .header-calendar{
       color:white;
     }
+
     .box-day{
       border:1px solid #E3E9E5;
       height:150px;
     }
+
     .box-dayoff{
       border:1px solid #E3E9E5;
       height:150px;
       background-color: #ccd1ce;
     }
+
     .textCalendar{
       font-size: x-small;
     }

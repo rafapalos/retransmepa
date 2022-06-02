@@ -43,23 +43,24 @@
           @csrf
           <div class="fomr-group">
             <label>Nombre</label>
-            <input type="text" class="form-control" name="nombre" required>
+            <input type="text" class="form-control" maxlength="14" name="nombre" required>
           </div>
           <div class="fomr-group">
             <label>Matricula</label>
-            <input type="text" class="form-control" name="matricula" required>
+            <input type="text" class="form-control" pattern="[0-9]{4}[-][A-Z]{3}" name="matricula" required>
+            <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
           </div>
           <div class="fomr-group">
             <label>Marca</label>
-            <input type="text" class="form-control" name="marca" required>
+            <input type="text" maxlength="15" class="form-control" name="marca" required>
           </div>
           <div class="fomr-group">
             <label>Modelo</label>
-            <input type="text" class="form-control" name="modelo" required>
+            <input type="text" maxlength="15" class="form-control" name="modelo" required>
           </div>
           <div class="fomr-group">
             <label>Fecha</label>
-            <input type="date" class="form-control" name="fecha" required>
+            <input type="date" class="form-control" min="2022-06-01" max="2050-01-01" name="fecha" required>
           </div>
           <div class="fomr-group">
             <label>Hora</label>
