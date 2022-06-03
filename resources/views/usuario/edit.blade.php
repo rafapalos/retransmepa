@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3" id="divCorreoVerificado">
             <label for="" class="form-label">Correo Verificado</label>
-            <input id="email_verified_at" name="email_verified_at" type="text" class="form-control">
+            <input id="email_verified_at" name="email_verified_at" type="text" class="form-control" value="{{$usuario->email_verified_at}}">
         </div>
         <a href="/usuarios" class="btn btn-secondary">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -36,11 +36,11 @@
 $('#divCorreoVerificado').hide();
 $('#divContraseña').hide();
 
-let date = new Date();
+// let date = new Date();
 
-let fechaActual = date.getFullYear() + '-' + ( date.getMonth() + 1 ) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+// let fechaActual = date.getFullYear() + '-' + ( date.getMonth() + 1 ) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
-$('#email_verified_at').val(fechaActual);
+// $('#email_verified_at').val(fechaActual);
 
 </script>
 @stop
