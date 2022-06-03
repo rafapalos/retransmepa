@@ -16,11 +16,11 @@
         </div> -->
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
-            <input id="marca" name="marca" type="text" class="form-control" value="{{$vehiculo->marca}}" required>
+            <input id="marca" name="marca" type="text" maxLength="15" pattern="[A-Za-z ]{1,15}" class="form-control" value="{{$vehiculo->marca}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Modelo</label>
-            <input id="modelo" name="modelo" type="text" class="form-control" value="{{$vehiculo->modelo}}" required>
+            <input id="modelo" name="modelo" type="text" maxLength="15" pattern="[A-Za-z0-9]{1,15}" class="form-control" value="{{$vehiculo->modelo}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>

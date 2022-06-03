@@ -24,10 +24,10 @@
                 <!-- <option class="optionNombreValue" value="{{$incidencia->nombreEmpleado}}">{{$incidencia->nombreEmpleado}}</option> -->
                 <option value="">Elije un empleado</option>
                 @foreach ($empleadosIncidenciasTransporte as $empleadosIncidenciasTransporte)
-                <option class="optionTransporte" value="{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}">{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}</option>
+                <option class="optionTransporte" value="{{$empleadosIncidenciasTransporte->id}}-{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}">{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}</option>
                 @endforeach
                 @foreach ($empleadosIncidenciasLavadero as $empleadosIncidenciasLavadero)
-                <option class="optionLavadero" value="{{$empleadosIncidenciasLavadero->nombre}} {{$empleadosIncidenciasLavadero->apellidos}}">{{$empleadosIncidenciasLavadero->nombre}} {{$empleadosIncidenciasLavadero->apellidos}}</option>
+                <option class="optionLavadero" value="{{$empleadosIncidenciasLavadero->id}}-{{$empleadosIncidenciasLavadero->nombre}} {{$empleadosIncidenciasLavadero->apellidos}}">{{$empleadosIncidenciasLavadero->nombre}} {{$empleadosIncidenciasLavadero->apellidos}}</option>
                 @endforeach
             </select>
         </div>

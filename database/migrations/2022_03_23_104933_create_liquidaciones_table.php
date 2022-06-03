@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('liquidacions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_empleado');
+            $table->integer('id_vehiculo');
             $table->integer('numRepartidor');
             $table->string('nombre',40);
             $table->string('matricula',8);
@@ -25,6 +27,7 @@ return new class extends Migration
             $table->decimal('dinero',4,2);
             $table->date('fecha');
             $table->string('codPostal',40);
+            $table->string('registrado_por',30);
             $table->timestamps();
         });
     }

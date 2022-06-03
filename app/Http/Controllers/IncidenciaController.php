@@ -19,8 +19,8 @@ class IncidenciaController extends Controller {
 
     // Función para añadir incidencias
     public function create() {
-        $empleadosIncidenciasTransporte = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
-        $empleadosIncidenciasLavadero = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+        $empleadosIncidenciasTransporte = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
+        $empleadosIncidenciasLavadero = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
 
         return view('incidencia.create', ['empleadosIncidenciasTransporte' => $empleadosIncidenciasTransporte, 'empleadosIncidenciasLavadero' => $empleadosIncidenciasLavadero]);
     }
@@ -28,13 +28,19 @@ class IncidenciaController extends Controller {
     public function store(Request $request) {
         $incidencias = new Incidencia();
 
-        $incidencias-> nombreEmpleado = $request->get('nombreEmpleado');
+        $IdNombre = $request->get('nombreEmpleado');
+        $idEmpleado = stristr( $IdNombre, "-", true );
+        $nombreA = stristr( $IdNombre, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
+
+        $incidencias-> nombreEmpleado = $nombreApellidos;
         $incidencias-> sector = $request->get('sector');
         $incidencias-> descripcion = $request->get('descripcion');
         $incidencias-> estado = $request->get('estado');
         $incidencias-> sancion = $request->get('sancion');
         $incidencias-> fecha = $request->get('fecha');
-
+        $incidencias-> id_empleado = $idEmpleado;
+        $incidencias-> registrado_por = auth()->user()->name;
         $incidencias->save();
 
         return redirect('/incidencias');
@@ -46,8 +52,8 @@ class IncidenciaController extends Controller {
 
     // Función para el botón de editar del dataTables
     public function edit($id) {
-        $empleadosIncidenciasTransporte = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
-        $empleadosIncidenciasLavadero = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+        $empleadosIncidenciasTransporte = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa != 'LavadosExpress' AND cargo != 'Limpiador'" );
+        $empleadosIncidenciasLavadero = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
 
         $incidencia = Incidencia::find($id);
 
@@ -58,13 +64,19 @@ class IncidenciaController extends Controller {
     public function update(Request $request, $id) {
         $incidencia = Incidencia::find($id);
 
-        $incidencia-> nombreEmpleado = $request->get('nombreEmpleado');
+        $IdNombre = $request->get('nombreEmpleado');
+        $idEmpleado = stristr( $IdNombre, "-", true );
+        $nombreA = stristr( $IdNombre, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
+
+        $incidencia-> nombreEmpleado = $nombreApellidos;
         $incidencia-> sector = $request->get('sector');
         $incidencia-> descripcion = $request->get('descripcion');
         $incidencia-> estado = $request->get('estado');
         $incidencia-> sancion = $request->get('sancion');
         $incidencia-> fecha = $request->get('fecha');
-
+        $incidencia-> id_empleado = $idEmpleado;
+        $incidencia-> registrado_por = auth()->user()->name;
         $incidencia->save();
 
         return redirect('/incidencias');

@@ -14,23 +14,38 @@ class LiquidacionController extends Controller {
 
     public function index() {
         $liquidaciones = liquidacion::all();
+
         return view('liquidacion.index')->with('liquidaciones', $liquidaciones);
     }
 
     // Función para añadir
     public function create() {
-        $empleadosLiquidaciones = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'GLS' AND cargo = 'Repartidor'" );
-        $vehiculosLiquidaciones = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
-        
+        $empleadosLiquidaciones = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'GLS' AND cargo = 'Repartidor'" );
+        $vehiculosLiquidaciones = DB::select("SELECT id, matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
+
         return view('liquidacion.create', ['empleadosLiquidaciones' => $empleadosLiquidaciones], ['vehiculosLiquidaciones' => $vehiculosLiquidaciones]);
+
     }
 
     public function store(Request $request) {
         $liquidaciones = new Liquidacion();
-        
+
+        $IdNombre = $request->get('nombre');
+        $idEmpleado = stristr( $IdNombre, "-", true );
+        $nombreA = stristr( $IdNombre, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
+
+        $IdMatricula = $request->get('matricula');
+        $idVehiculo = stristr( $IdMatricula, "-", true );
+        $matriculaConGuion = stristr( $IdMatricula, "-", false );
+        $matricula = substr($matriculaConGuion, 1);
+
+
         $liquidaciones-> numRepartidor = $request->get('numRepartidor');
-        $liquidaciones-> nombre = $request->get('nombre');
-        $liquidaciones-> matricula = $request->get('matricula');
+        $liquidaciones-> nombre = $nombreApellidos;
+        $liquidaciones-> id_empleado = $idEmpleado;
+        $liquidaciones-> id_vehiculo = $idVehiculo;
+        $liquidaciones-> matricula = $matricula;
         $liquidaciones-> entregas = $request->get('entregas');
         $liquidaciones-> recogidas = $request->get('recogidas');
         $liquidaciones-> incidencias = $request->get('incidencias');
@@ -38,6 +53,7 @@ class LiquidacionController extends Controller {
         $liquidaciones-> dinero = $request->get('dinero');
         $liquidaciones-> fecha = $request->get('fecha');
         $liquidaciones-> codPostal = $request->get('codPostal');
+        $liquidaciones-> registrado_por = auth()->user()->name;
 
         $liquidaciones->save();
 
@@ -46,19 +62,32 @@ class LiquidacionController extends Controller {
 
     // Función para el botón de editar del dataTables
     public function edit($id) {
-        $matriculaEdit = DB::select("SELECT matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
-
+        $matriculaEdit = DB::select("SELECT id, matricula FROM vehiculos WHERE estado = 'Activo' AND empresa = 'GLS'");
+        $empleadosEdit = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'GLS' AND cargo = 'Repartidor'" );
+        
         $liquidacion = Liquidacion::find($id);
 
-        return view('liquidacion.edit', ['matriculaEdit' => $matriculaEdit])->with('liquidacion',$liquidacion);
+        return view('liquidacion.edit', ['matriculaEdit' => $matriculaEdit, 'empleadosEdit' => $empleadosEdit])->with('liquidacion',$liquidacion);
     }
 
     public function update(Request $request, $id) {
         $liquidacion = Liquidacion::find($id);
 
+        $IdNombre = $request->get('nombre');
+        $idEmpleado = stristr( $IdNombre, "-", true );
+        $nombreA = stristr( $IdNombre, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
+
+        $IdMatricula = $request->get('matricula');
+        $idVehiculo = stristr( $IdMatricula, "-", true );
+        $matriculaConGuion = stristr( $IdMatricula, "-", false );
+        $matricula = substr($matriculaConGuion, 1);
+
         $liquidacion-> numRepartidor = $request->get('numRepartidor');
-        $liquidacion-> nombre = $request->get('nombre');
-        $liquidacion-> matricula = $request->get('matricula');
+        $liquidacion-> nombre = $nombreApellidos;
+        $liquidacion-> id_empleado = $idEmpleado;
+        $liquidacion-> id_vehiculo = $idVehiculo;
+        $liquidacion-> matricula = $matricula;
         $liquidacion-> entregas = $request->get('entregas');
         $liquidacion-> recogidas = $request->get('recogidas');
         $liquidacion-> incidencias = $request->get('incidencias');
@@ -66,6 +95,7 @@ class LiquidacionController extends Controller {
         $liquidacion-> dinero = $request->get('dinero');
         $liquidacion-> fecha = $request->get('fecha');
         $liquidacion-> codPostal = $request->get('codPostal');
+        $liquidacion-> registrado_por = auth()->user()->name;
 
         $liquidacion->save();
 

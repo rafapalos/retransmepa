@@ -224,6 +224,12 @@ return [
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'Aplicación'],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'usuarios',
+            'icon' => 'fas fa-fw fa-user',
+        ],
     ],
 
     /*

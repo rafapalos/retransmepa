@@ -17,7 +17,7 @@
             <label for="" class="form-label">Nombre</label>
             <select class="form-control" id="nombre" name="nombre" required>
                 @foreach ($empleadosLiquidaciones as $empleadosLiquidacion)
-                <option value="{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}">{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}</option>
+                <option value="{{$empleadosLiquidacion->id}}-{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}">{{$empleadosLiquidacion->nombre}} {{$empleadosLiquidacion->apellidos}}</option>
                 @endforeach
             </select>
         </div>
@@ -25,7 +25,7 @@
             <label for="" class="form-label">Matricula</label>
             <select class="form-control" id="matricula" name="matricula" required>
                 @foreach ($vehiculosLiquidaciones as $vehiculosLiquidacion)
-                <option value="{{$vehiculosLiquidacion->matricula}}">{{$vehiculosLiquidacion->matricula}}</option>
+                <option value="{{$vehiculosLiquidacion->id}}-{{$vehiculosLiquidacion->matricula}}">{{$vehiculosLiquidacion->matricula}}</option>
                 @endforeach
             </select>
         </div>

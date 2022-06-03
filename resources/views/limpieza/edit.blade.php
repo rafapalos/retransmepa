@@ -57,7 +57,7 @@
             <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" required>
                 <option value="">Elije una opción</option>
                 @foreach ($empleadoEdit as $empleadoEdit)
-                <option value="{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}">{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}</option>
+                <option value="{{$empleadoEdit->id}}-{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}">{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}</option>
                 @endforeach
             </select>
         </div>

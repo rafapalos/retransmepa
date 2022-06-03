@@ -19,6 +19,7 @@
             <th scope="col">Estado</th>
             <th scope="col">Sanción</th>
             <th scope="col">Fecha</th>
+            <th scope="col">Registrado por</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -32,6 +33,7 @@
             <td>{{ $incidencia-> estado }}</td>
             <td>{{ $incidencia-> sancion }}</td>
             <td>{{ $incidencia-> fecha }}</td>
+            <td>{{ $incidencia-> registrado_por }}</td>
             <td>
                 <form action="{{ route ('incidencias.destroy',$incidencia->id) }}" method="POST">
                     <a href="/incidencias/{{ $incidencia-> id }}/edit" class="btn btn-info">Editar</a>

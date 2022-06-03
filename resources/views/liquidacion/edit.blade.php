@@ -16,14 +16,19 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input id="nombre" name="nombre" type="text" class="form-control" value="{{$liquidacion->nombre}}" required>
+            <select class="form-control" id="nombre" name="nombre" required>
+                <option value="">Elija una opción</option>
+                @foreach ($empleadosEdit as $empleadosEdit)
+                <option value="{{$empleadosEdit->id}}-{{$empleadosEdit->nombre}} {{$empleadosEdit->apellidos}}">{{$empleadosEdit->nombre}} {{$empleadosEdit->apellidos}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
             <select class="form-control" id="matricula" name="matricula" required>
                 <option value="">Elija una opción</option>
                 @foreach ($matriculaEdit as $matriculaEdit)
-                <option value="{{$matriculaEdit->matricula}}">{{$matriculaEdit->matricula}}</option>
+                <option value="{{$matriculaEdit->id}}-{{$matriculaEdit->matricula}}">{{$matriculaEdit->matricula}}</option>
                 @endforeach
             </select>
         </div>

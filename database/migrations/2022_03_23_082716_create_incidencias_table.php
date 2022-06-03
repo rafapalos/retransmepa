@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('estado',30);
             $table->integer('sancion');
             $table->date('fecha');
+            $table->integer('id_empleado');
+            $table->string('registrado_por',30);
             $table->timestamps();
         });
     }

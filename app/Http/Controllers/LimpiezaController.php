@@ -19,13 +19,18 @@ class LimpiezaController extends Controller {
 
     // Función para añadir limpieza
     public function create() {
-        $empleadosLimpiezas = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+        $empleadosLimpiezas = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
 
         return view('limpieza.create', ['empleadosLimpiezas' => $empleadosLimpiezas]);
     }
 
     public function store(Request $request) {
         $limpiezas = new Limpieza();
+
+        $IdEmpleadoAsignado = $request->get('empleadoAsignado');
+        $idEmpleado = stristr( $IdEmpleadoAsignado, "-", true );
+        $nombreA = stristr( $IdEmpleadoAsignado, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
 
         $limpiezas-> nombreCliente = $request->get('nombreCliente');
         $limpiezas-> matricula = $request->get('matricula');
@@ -35,7 +40,9 @@ class LimpiezaController extends Controller {
         $limpiezas-> tipoCoche = $request->get('tipoCoche');
         $limpiezas-> precio = $request->get('precio');
         $limpiezas-> fechaLimpieza = $request->get('fechaLimpieza');
-        $limpiezas-> empleadoAsignado = $request->get('empleadoAsignado');
+        $limpiezas-> empleadoAsignado = $nombreApellidos;
+        $limpiezas-> id_empleado = $idEmpleado;
+        $limpiezas-> registrado_por = auth()->user()->name;
 
         $limpiezas->save();
 
@@ -48,15 +55,19 @@ class LimpiezaController extends Controller {
 
     // Función para el botón de editar del dataTables
     public function edit($id) {
-        $empleadoEdit = DB::select("SELECT nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'");
+        $empleadoEdit = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'");
 
         $limpieza = Limpieza::find($id);
         return view('limpieza.edit', ['empleadoEdit' => $empleadoEdit])->with('limpieza',$limpieza);
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $limpieza = Limpieza::find($id);
+
+        $IdEmpleadoAsignado = $request->get('empleadoAsignado');
+        $idEmpleado = stristr( $IdEmpleadoAsignado, "-", true );
+        $nombreA = stristr( $IdEmpleadoAsignado, "-", false );
+        $nombreApellidos = substr($nombreA, 1);
 
         $limpieza-> nombreCliente = $request->get('nombreCliente');
         $limpieza-> matricula = $request->get('matricula');
@@ -66,7 +77,9 @@ class LimpiezaController extends Controller {
         $limpieza-> tipoCoche = $request->get('tipoCoche');
         $limpieza-> precio = $request->get('precio');
         $limpieza-> fechaLimpieza = $request->get('fechaLimpieza');
-        $limpieza-> empleadoAsignado = $request->get('empleadoAsignado');
+        $limpieza-> empleadoAsignado = $nombreApellidos;
+        $limpieza-> id_empleado = $idEmpleado;
+        $limpieza-> registrado_por = auth()->user()->name;
 
         $limpieza->save();
 

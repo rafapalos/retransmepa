@@ -20,7 +20,7 @@
         {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" autofocus>
+                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" maxlength="30" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -38,7 +38,7 @@
         {{-- Email field --}}
         <div class="input-group mb-3">
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                   value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}">
+                   value="{{ old('email') }}" placeholder="Correo">
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -48,7 +48,7 @@
 
             @error('email')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                    <strong>El correo ya es existente</strong>
                 </span>
             @enderror
         </div>
@@ -56,7 +56,7 @@
         {{-- Password field --}}
         <div class="input-group mb-3">
             <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                   placeholder="{{ __('adminlte::adminlte.password') }}">
+                   placeholder="{{ __('adminlte::adminlte.password') }}" minlength="8" maxlength="16">
 
             <div class="input-group-append">
                 <div class="input-group-text">
@@ -66,7 +66,7 @@
 
             @error('password')
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+                    <strong>La contraseña no es correcta</strong>
                 </span>
             @enderror
         </div>
@@ -75,7 +75,7 @@
         <div class="input-group mb-3">
             <input type="password" name="password_confirmation"
                    class="form-control @error('password_confirmation') is-invalid @enderror"
-                   placeholder="{{ __('adminlte::adminlte.retype_password') }}">
+                   placeholder="{{ __('adminlte::adminlte.retype_password') }}" minlength="8" maxlength="16">
 
             <div class="input-group-append">
                 <div class="input-group-text">

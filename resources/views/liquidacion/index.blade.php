@@ -22,6 +22,7 @@
             <th scope="col">Dinero</th>
             <th scope="col">Fecha</th>
             <th scope="col">Código Postal</th>
+            <th scope="col">Registrado por</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -39,6 +40,7 @@
             <td>{{ $liquidacion-> dinero }}</td>
             <td>{{ $liquidacion-> fecha }}</td>
             <td>{{ $liquidacion-> codPostal }}</td>
+            <td>{{ $liquidacion-> registrado_por }}</td>
             <td>
                 <form action="{{ route ('liquidaciones.destroy',$liquidacion->id) }}" method="POST">
                     <a href="/liquidaciones/{{ $liquidacion-> id }}/edit" class="btn btn-info">Editar</a>

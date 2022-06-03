@@ -15,6 +15,7 @@ Route::resource('vehiculos', 'App\Http\Controllers\VehiculoController');
 Route::resource('limpiezas', 'App\Http\Controllers\LimpiezaController');
 Route::resource('incidencias', 'App\Http\Controllers\IncidenciaController');
 Route::resource('liquidaciones', 'App\Http\Controllers\LiquidacionController');
+Route::resource('usuarios', 'App\Http\Controllers\UsuarioController');
 
 Route::get('Evento/form','App\Http\Controllers\ControllerEvent@form');
 Route::post('Evento/create','App\Http\Controllers\ControllerEvent@create');

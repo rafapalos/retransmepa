@@ -18,15 +18,15 @@
         </div> -->
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
-            <input id="marca" name="marca" type="text" class="form-control" value="{{old('marca')}}" required>
+            <input id="marca" name="marca" type="text" maxLength="15" pattern="[A-Za-z ]{1,15}" class="form-control" value="{{old('marca')}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Modelo</label>
-            <input id="modelo" name="modelo" type="text" class="form-control" value="{{old('modelo')}}" required>
+            <input id="modelo" name="modelo" type="text" maxLength="15" pattern="[A-Za-z0-9]{1,15}" class="form-control" value="{{old('modelo')}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" class="form-control" required>
+            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" class="form-control" required>
             <span class="validity"></span>
             <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
             @if ($errors->has('matricula'))

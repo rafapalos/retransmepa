@@ -22,6 +22,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Fecha de limpieza</th>
             <th scope="col">Empleado Asignado</th>
+            <th scope="col">Registrado por</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -38,6 +39,7 @@
             <td>{{ $limpieza-> precio }}</td>
             <td>{{ $limpieza-> fechaLimpieza }}</td>
             <td>{{ $limpieza-> empleadoAsignado }}</td>
+            <td>{{ $limpieza-> registrado_por }}</td>
             <td>
                 <form action="{{ route ('limpiezas.destroy',$limpieza->id) }}" method="POST">
                     <a href="/limpiezas/{{ $limpieza-> id }}/edit" class="btn btn-info">Editar</a>

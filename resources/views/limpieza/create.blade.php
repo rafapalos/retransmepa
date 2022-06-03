@@ -53,7 +53,7 @@
             <label for="" class="form-label">Empleado a Asignar</label>
             <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" required>
                 @foreach ($empleadosLimpiezas as $empleadosLimpiezas)
-                <option value="{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}">{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}</option>
+                <option value="{{$empleadosLimpiezas->id}}-{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}">{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}</option>
                 @endforeach
             </select>
         </div>
