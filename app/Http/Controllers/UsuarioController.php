@@ -28,7 +28,7 @@ class UsuarioController extends Controller {
         {
             $usuarios = new User();
             
-            $usuarios-> id = $request->get('id');
+            // $usuarios-> id = $request->get('id');
             $usuarios-> name = $request->get('name');
             $usuarios-> email = $request->get('email');
             $usuarios-> email_verified_at = $request->get('email_verified_at');
