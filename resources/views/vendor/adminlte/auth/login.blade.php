@@ -92,12 +92,12 @@
         </p>
     @endif -->
 
-    {{-- Register link --}}
+    <!-- {{-- Register link --}}
     @if($register_url)
         <p class="my-0">
             <a href="{{ $register_url }}">
                 {{ __('adminlte::adminlte.register_a_new_membership') }}
             </a>
         </p>
-    @endif
+    @endif -->
 @stop
