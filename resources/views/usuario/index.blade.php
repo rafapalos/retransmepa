@@ -24,7 +24,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
             <th scope="col">Email Verificado</th>
-            <th scope="col">Contraseña</th>
+            <!-- <th scope="col">Contraseña</th> -->
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -35,7 +35,7 @@
             <td>{{ $usuario-> name }}</td>
             <td>{{ $usuario-> email }}</td>
             <td>{{ $usuario-> email_verified_at }}</td>
-            <td>{{ $usuario-> password}}</td>
+            <!-- <td>{{ $usuario-> password}}</td> -->
             <td>
                 <form action="{{ route ('usuarios.destroy',$usuario->id) }}" method="POST">
                     <a href="/usuarios/{{ $usuario-> id }}/edit" class="btn btn-info">Editar</a>
