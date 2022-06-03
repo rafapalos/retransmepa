@@ -36,11 +36,11 @@
 $('#divCorreoVerificado').hide();
 $('#divContraseña').hide();
 
-let date = new Date();
+// let date = new Date();
 
-let fechaActual = date.getFullYear() + '-' + ( date.getMonth() + 1 ) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+// let fechaActual = date.getFullYear() + '-' + ( date.getMonth() + 1 ) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
-$('#email_verified_at').val(fechaActual);
+// $('#email_verified_at').val(fechaActual);
 
 </script>
 @stop
