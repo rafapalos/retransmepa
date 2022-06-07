@@ -177,7 +177,7 @@ return [
         [
             'text' => 'Inicio',
             'url' => 'dashboard',
-            'icon'        => 'fas fa-home',
+            'icon' => 'fas fa-home',
         ],
         ['header' => 'Transporte'],
         [
@@ -228,7 +228,7 @@ return [
         [
             'text' => 'Usuarios',
             'url'  => 'usuarios',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-users',
         ],
     ],
 

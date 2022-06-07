@@ -3,83 +3,76 @@
 @section('title', 'Retransmepa')
 
 @section('content_header')
-    <h2>Añadir Vehiculo</h2>
+<h2>Añadir Vehiculo</h2>
 @stop
 
 @section('content')
-    <form action="/vehiculos" id="formVehiculos" method="POST">
-        @csrf
-        <!-- <div class="mb-3">
-            <label for="" class="form-label">ID</label>
-            <input id="id" name="id" type="text" class="form-control" value="{{old('id')}}" required>
-            @if ($errors->has('id'))
-                <span class="error text-danger" for="input-id">El id ya está registrado anteriormente</span>
-            @endif
-        </div> -->
-        <div class="mb-3">
-            <label for="" class="form-label">Marca</label>
-            <input id="marca" name="marca" type="text" maxLength="15" pattern="[A-Za-z ]{1,15}" class="form-control" value="{{old('marca')}}" required>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Modelo</label>
-            <input id="modelo" name="modelo" type="text" maxLength="15" pattern="[A-Za-z0-9]{1,15}" class="form-control" value="{{old('modelo')}}" required>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" class="form-control" required>
-            <span class="validity"></span>
-            <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
-            @if ($errors->has('matricula'))
-                <span class="error text-danger" for="input-matricula">La matricula ya está registrada anteriormente</span>
-            @endif
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Empresa</label>
-            <select class="form-control" id="empresa" name="empresa" required>
-                <option class="optionValueEmpresa" value="{{old('empresa')}}">{{old('empresa')}}</option>
-                <option class="optionGLS" value="GLS">GLS</option>
-                <option class="optionSEUR" value="SEUR">SEUR</option>
-                <option class="optionCorreosExpress" value="CorreosExpress">CorreosExpress</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Estado</label>
-            <select class="form-control" id="estado" name="estado"  required>
-                <option class="optionValueEstado" value="{{old('estado')}}">{{old('estado')}}</option>
-                <option class="optionActivo" value="Activo">Activo</option>
-                <option class="optionParado" value="Parado">Parado</option>
-                <option class="optionTaller" value="Taller">Taller</option>
-            </select>
-        </div>
-        <div class="mb-3" id="divPropiedad">
-            <label for="" class="form-label">Propiedad</label>
-            <select class="form-control" id="propiedad" name="propiedad" required>
-                <option class="optionValuePropiedad" value="{{old('propiedad')}}">{{old('propiedad')}}</option>
-                <option class="optionRetransmepa" value="Retransmepa">Retransmepa</option>
-                <option class="optionAlquiler" value="Alquiler">Alquiler</option>
-            </select>
-        </div>
-        <div class="mb-3" id="divAlquiler">
-            <label for="" class="form-label">Alquiler</label>
-            <select class="form-control" id="alquiler" name="alquiler">
-                <option class="optionValueAlquiler" value="{{old('alquiler')}}">{{old('alquiler')}}</option>
-                <option class="optionNorthgate" value="Northgate">Northgate</option>
-                <option class="optionPinveco" value="Pinveco">Pinveco</option>
-                <option class="optionEnterprise" value="Enterprise">Enterprise</option>
-                <option class="optionLogicar" value="Logicar">Logicar</option>
-            </select>
-        </div>
-        <div class="mb-3" id="divFechaAlquilerDesde">
-            <label for="" class="form-label">Fecha Desde Alquiler</label>
-            <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" value="{{old('fechaAlquilerDesde')}}" type="date" class="form-control" min="2020-01-01">
-        </div>
-        <div class="mb-3" id="divFechaAlquilerHasta">
-            <label for="" class="form-label">Fecha Hasta Alquiler</label>
-            <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" value="{{old('fechaAlquilerHasta')}}" type="date" class="form-control" min="2020-01-01">
-        </div>
-        <a href="/vehiculos" class="btn btn-secondary">Cancelar</a>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+<form action="/vehiculos" id="formVehiculos" method="POST">
+    @csrf
+    <div class="mb-3">
+        <label for="" class="form-label">Marca</label>
+        <input id="marca" name="marca" type="text" maxLength="15" pattern="[A-Za-z ]{1,15}" class="form-control" value="{{old('marca')}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Modelo</label>
+        <input id="modelo" name="modelo" type="text" maxLength="15" pattern="[A-Za-z0-9]{1,15}" class="form-control" value="{{old('modelo')}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Matricula</label>
+        <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" class="form-control" required>
+        <span class="validity"></span>
+        <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
+        @if ($errors->has('matricula'))
+        <span class="error text-danger" for="input-matricula">La matricula ya está registrada anteriormente</span>
+        @endif
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Empresa</label>
+        <select class="form-control" id="empresa" name="empresa" required>
+            <option class="optionValueEmpresa" value="{{old('empresa')}}">{{old('empresa')}}</option>
+            <option class="optionGLS" value="GLS">GLS</option>
+            <option class="optionSEUR" value="SEUR">SEUR</option>
+            <option class="optionCorreosExpress" value="CorreosExpress">CorreosExpress</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Estado</label>
+        <select class="form-control" id="estado" name="estado" required>
+            <option class="optionValueEstado" value="{{old('estado')}}">{{old('estado')}}</option>
+            <option class="optionActivo" value="Activo">Activo</option>
+            <option class="optionParado" value="Parado">Parado</option>
+            <option class="optionTaller" value="Taller">Taller</option>
+        </select>
+    </div>
+    <div class="mb-3" id="divPropiedad">
+        <label for="" class="form-label">Propiedad</label>
+        <select class="form-control" id="propiedad" name="propiedad" required>
+            <option class="optionValuePropiedad" value="{{old('propiedad')}}">{{old('propiedad')}}</option>
+            <option class="optionRetransmepa" value="Retransmepa">Retransmepa</option>
+            <option class="optionAlquiler" value="Alquiler">Alquiler</option>
+        </select>
+    </div>
+    <div class="mb-3" id="divAlquiler">
+        <label for="" class="form-label">Alquiler</label>
+        <select class="form-control" id="alquiler" name="alquiler">
+            <option class="optionValueAlquiler" value="{{old('alquiler')}}">{{old('alquiler')}}</option>
+            <option class="optionNorthgate" value="Northgate">Northgate</option>
+            <option class="optionPinveco" value="Pinveco">Pinveco</option>
+            <option class="optionEnterprise" value="Enterprise">Enterprise</option>
+            <option class="optionLogicar" value="Logicar">Logicar</option>
+        </select>
+    </div>
+    <div class="mb-3" id="divFechaAlquilerDesde">
+        <label for="" class="form-label">Fecha Desde Alquiler</label>
+        <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" value="{{old('fechaAlquilerDesde')}}" type="date" class="form-control" min="2020-01-01">
+    </div>
+    <div class="mb-3" id="divFechaAlquilerHasta">
+        <label for="" class="form-label">Fecha Hasta Alquiler</label>
+        <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" value="{{old('fechaAlquilerHasta')}}" type="date" class="form-control" min="2020-01-01">
+    </div>
+    <a href="/vehiculos" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 @stop
 
 @section('js')
@@ -88,8 +81,8 @@
     $('#divFechaAlquilerDesde').hide();
     $('#divFechaAlquilerHasta').hide();
 
-	// Propiedad
-	$(document).off('change', '#propiedad').on('change', '#propiedad', function() {
+    // Propiedad
+    $(document).off('change', '#propiedad').on('change', '#propiedad', function() {
         if ($("#propiedad").val() == "Retransmepa") {
             $('#divAlquiler, #divFechaAlquilerDesde, #divFechaAlquilerHasta').hide();
             $('#alquiler, #fechaAlquilerDesde, #fechaAlquilerHasta').removeAttr('required', true);
@@ -179,5 +172,30 @@
         $('.optionEnterprise').hide();
         $('.optionLogicar').hide();
     }
+
+    // $("#fechaAlquilerHasta").bind("change keyup", function(event) {
+    //     let fechaDesde = $('#fechaAlquilerDesde').val();
+    //     let fechaHasta = $('#fechaAlquilerHasta').val();
+    //     // console.log(fechaDesde);
+    //     // console.log(fechaHasta);
+    //     if (fechaDesde < fechaHasta) {
+    //         // console.log('prueba');
+    //     } else {
+    //         let fechaHasta = $('#fechaAlquilerHasta').val();
+    //         let fecha = new Date(fechaHasta);
+
+    //         let fechaDesde = $('#fechaAlquilerDesde').val();
+    //         let fechaDesde2 = fechaDesde.getMilliseconds();
+    //         console.log(fecha2);
+    //         let semanaEnMilisegundos = 1000 * 60 * 60 * 24 * 7;
+    //         let resta = fecha.getTime() - semanaEnMilisegundos;
+    //         let fechaDentroDeUnaSemana = new Date(resta);
+    //         let result = fechaDentroDeUnaSemana.toISOString();
+
+    //         let resultadoModificado = result.slice(0, -14);
+    //         $('#fechaAlquilerDesde').val(resultadoModificado);
+    //         console.log(resultadoModificado);
+    //     }
+    // });
 </script>
 @stop

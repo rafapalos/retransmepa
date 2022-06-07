@@ -37,7 +37,7 @@
             <td>{{ $liquidacion-> recogidas }}</td>
             <td>{{ $liquidacion-> incidencias }}</td>
             <td>{{ $liquidacion-> diaTrabajado }}</td>
-            <td>{{ $liquidacion-> dinero }}</td>
+            <td>{{ $liquidacion-> dinero }} €</td>
             <td>{{ $liquidacion-> fecha }}</td>
             <td>{{ $liquidacion-> codPostal }}</td>
             <td>{{ $liquidacion-> registrado_por }}</td>

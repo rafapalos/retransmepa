@@ -31,7 +31,7 @@
             <td>{{ $incidencia-> sector }}</td>
             <td>{{ $incidencia-> descripcion }}</td>
             <td>{{ $incidencia-> estado }}</td>
-            <td>{{ $incidencia-> sancion }}</td>
+            <td>{{ $incidencia-> sancion }} €</td>
             <td>{{ $incidencia-> fecha }}</td>
             <td>{{ $incidencia-> registrado_por }}</td>
             <td>

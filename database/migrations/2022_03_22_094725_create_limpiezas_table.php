@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('precio',10);
             $table->date('fechaLimpieza');
             $table->string('empleadoAsignado',50);
-            $table->integer('id_empleado');
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id')->on('empleados');
             $table->string('registrado_por',30);
             $table->timestamps();
         });

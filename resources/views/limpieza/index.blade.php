@@ -36,7 +36,7 @@
             <td>{{ $limpieza-> modelo }}</td>
             <td>{{ $limpieza-> tipoLavado }}</td>
             <td>{{ $limpieza-> tipoCoche }}</td>
-            <td>{{ $limpieza-> precio }}</td>
+            <td>{{ $limpieza-> precio }} €</td>
             <td>{{ $limpieza-> fechaLimpieza }}</td>
             <td>{{ $limpieza-> empleadoAsignado }}</td>
             <td>{{ $limpieza-> registrado_por }}</td>

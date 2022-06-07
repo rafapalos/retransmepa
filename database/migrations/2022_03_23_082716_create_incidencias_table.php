@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('estado',30);
             $table->integer('sancion');
             $table->date('fecha');
-            $table->integer('id_empleado');
+            $table->unsignedBigInteger('id_empleado');
+            $table->foreign('id_empleado')->references('id')->on('empleados');
             $table->string('registrado_por',30);
             $table->timestamps();
         });
