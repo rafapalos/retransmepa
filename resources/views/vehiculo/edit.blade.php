@@ -24,7 +24,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" class="form-control" value="{{$vehiculo->matricula}}" required>
+            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" title="La matricula debe tener el siguiente formato '0000-XXX'" class="form-control" value="{{$vehiculo->matricula}}" readonly required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empresa</label>

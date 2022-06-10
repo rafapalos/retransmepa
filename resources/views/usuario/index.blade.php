@@ -23,7 +23,7 @@
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
-            <th scope="col">Email Verificado</th>
+            <th scope="col">Verificado</th>
             <!-- <th scope="col">Contraseña</th> -->
             <th scope="col">Acciones</th>
         </tr>

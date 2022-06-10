@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('estado',30);
             $table->integer('sancion');
             $table->date('fecha');
-            $table->unsignedBigInteger('id_empleado');
-            $table->foreign('id_empleado')->references('id')->on('empleados');
+            $table->foreignId('id_empleado')
+                  ->contrained('empleados')
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
             $table->string('registrado_por',30);
             $table->timestamps();
         });

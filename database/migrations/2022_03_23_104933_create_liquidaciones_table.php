@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('liquidacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_empleado');
-            $table->foreign('id_empleado')->references('id')->on('empleados');
-            $table->unsignedBigInteger('id_vehiculo');
-            $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
+            $table->foreignId('id_empleado')
+                  ->contrained('empleados')
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
+            $table->foreignId('id_vehiculo')
+                  ->contrained('vehiculos')
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
             $table->integer('numRepartidor');
             $table->string('nombre',40);
             $table->string('matricula',8);

@@ -52,7 +52,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Sueldo diario</label>
-            <input id="dinero" name="dinero" type="number" step="any" class="form-control" required>
+            <input id="dinero" name="dinero" type="number" step="any" class="form-control" readonly required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>

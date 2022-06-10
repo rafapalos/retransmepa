@@ -19,9 +19,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Matricula</label>
-        <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" class="form-control" required>
-        <span class="validity"></span>
-        <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
+        <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" value="{{old('matricula')}}" title="La matricula debe tener el siguiente formato '0000-XXX'" class="form-control" required>     
         @if ($errors->has('matricula'))
         <span class="error text-danger" for="input-matricula">La matricula ya está registrada anteriormente</span>
         @endif
@@ -64,11 +62,11 @@
     </div>
     <div class="mb-3" id="divFechaAlquilerDesde">
         <label for="" class="form-label">Fecha Desde Alquiler</label>
-        <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" value="{{old('fechaAlquilerDesde')}}" type="date" class="form-control" min="2020-01-01">
+        <input id="fechaAlquilerDesde" name="fechaAlquilerDesde" value="{{old('fechaAlquilerDesde')}}" type="date" class="form-control" min="2022-01-01" max="2050-01-01">
     </div>
     <div class="mb-3" id="divFechaAlquilerHasta">
         <label for="" class="form-label">Fecha Hasta Alquiler</label>
-        <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" value="{{old('fechaAlquilerHasta')}}" type="date" class="form-control" min="2020-01-01">
+        <input id="fechaAlquilerHasta" name="fechaAlquilerHasta" value="{{old('fechaAlquilerHasta')}}" type="date" class="form-control" min="{{old('fechaAlquilerHasta')}}" max="2050-01-01">
     </div>
     <a href="/vehiculos" class="btn btn-secondary">Cancelar</a>
     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -173,29 +171,22 @@
         $('.optionLogicar').hide();
     }
 
-    // $("#fechaAlquilerHasta").bind("change keyup", function(event) {
-    //     let fechaDesde = $('#fechaAlquilerDesde').val();
-    //     let fechaHasta = $('#fechaAlquilerHasta').val();
-    //     // console.log(fechaDesde);
-    //     // console.log(fechaHasta);
-    //     if (fechaDesde < fechaHasta) {
-    //         // console.log('prueba');
-    //     } else {
-    //         let fechaHasta = $('#fechaAlquilerHasta').val();
-    //         let fecha = new Date(fechaHasta);
+    $("#fechaAlquilerDesde").bind("change keyup", function(event) {
+        let fechaDesde = $('#fechaAlquilerDesde').val();
 
-    //         let fechaDesde = $('#fechaAlquilerDesde').val();
-    //         let fechaDesde2 = fechaDesde.getMilliseconds();
-    //         console.log(fecha2);
-    //         let semanaEnMilisegundos = 1000 * 60 * 60 * 24 * 7;
-    //         let resta = fecha.getTime() - semanaEnMilisegundos;
-    //         let fechaDentroDeUnaSemana = new Date(resta);
-    //         let result = fechaDentroDeUnaSemana.toISOString();
+        let unixFechaDesde = new Date(fechaDesde).getTime() / 1000;
 
-    //         let resultadoModificado = result.slice(0, -14);
-    //         $('#fechaAlquilerDesde').val(resultadoModificado);
-    //         console.log(resultadoModificado);
-    //     }
-    // });
+        if (unixFechaDesde >= 1640995200) {
+            $('#fechaAlquilerHasta').removeAttr('readonly', true);
+        }
+
+        let dateMinValue = new Date(fechaDesde);
+        let dateMinValueFormat = dateMinValue.toISOString()
+        let dateMinSinFormat = dateMinValueFormat.slice("T", -13);
+        let dateMinFormat = dateMinSinFormat.replace("T", "");
+
+        document.getElementById("fechaAlquilerHasta").setAttribute("min", dateMinFormat);
+
+    });
 </script>
 @stop

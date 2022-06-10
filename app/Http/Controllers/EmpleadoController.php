@@ -24,16 +24,15 @@ class EmpleadoController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'dni' => 'required|unique:empleados'
+            'num_documento' => 'required|unique:empleados'
         ]);
 
         $empleados = new Empleado();
 
-        // $empleados-> id = $request->get('id');
-
         $empleados-> nombre = $request->get('nombre');
         $empleados-> apellidos = $request->get('apellidos');
-        $empleados-> dni = $request->get('dni');
+        $empleados-> documento = $request->get('documento');
+        $empleados-> num_documento = $request->get('num_documento');
         $empleados-> fechaNacimiento = $request->get('fechaNacimiento');
         $empleados-> estado = $request->get('estado');
         $empleados-> empresa = $request->get('empresa');
@@ -51,16 +50,12 @@ class EmpleadoController extends Controller
     }
 
     public function update(Request $request, $id) {
-        // $request->validate([
-        //     'dni' => 'required|unique:empleados'
-        // ]);
-
         $empleado = Empleado::find($id);
 
-        // $empleado-> id = $request->get('id');
         $empleado-> nombre = $request->get('nombre');
         $empleado-> apellidos = $request->get('apellidos');
-        $empleado-> dni = $request->get('dni');
+        $empleado-> documento = $request->get('documento');
+        $empleado-> num_documento = $request->get('num_documento');
         $empleado-> fechaNacimiento = $request->get('fechaNacimiento');
         $empleado-> estado = $request->get('estado');
         $empleado-> empresa = $request->get('empresa');

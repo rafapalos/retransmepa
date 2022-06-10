@@ -15,7 +15,8 @@
             <th scope="col">Nº Empleado</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellidos</th>
-            <th scope="col">DNI</th>
+            <th scope="col">Tipo Documento</th>
+            <th scope="col">Nº Documento</th>
             <th scope="col">Fecha Nacimiento</th>
             <th scope="col">Estado</th>
             <th scope="col">Empresa</th>
@@ -29,7 +30,8 @@
             <td>{{ $empleado-> id }}</td>
             <td>{{ $empleado-> nombre }}</td>
             <td>{{ $empleado-> apellidos }}</td>
-            <td>{{ $empleado-> dni }}</td>
+            <td>{{ $empleado-> documento }}</td>
+            <td>{{ $empleado-> num_documento }}</td>
             <td>{{ $empleado-> fechaNacimiento }}</td>
             <td>{{ $empleado-> estado }}</td>
             <td>{{ $empleado-> empresa }}</td>

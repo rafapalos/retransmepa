@@ -132,12 +132,12 @@
                     // Botón para Excel
                     extend: 'excel',
                     text: 'Exportar a excel',
-                    filename: 'RegistroLimpiezas'
+                    filename: 'RegistroIncidencias'
                 }, {
                     // Botón para Pdf
                     extend: 'pdf',
                     text: 'Exportar a pdf',
-                    filename: 'RegistroLimpiezas'
+                    filename: 'RegistroIncidencias'
                 }, {
                     // Botón para imprimir
                     extend: 'print',

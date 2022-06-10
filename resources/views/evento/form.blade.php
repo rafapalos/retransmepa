@@ -47,8 +47,7 @@
           </div>
           <div class="fomr-group">
             <label>Matricula</label>
-            <input type="text" class="form-control" pattern="[0-9]{4}[-][A-Z]{3}" name="matricula" required>
-            <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
+            <input type="text" class="form-control" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" title="La matricula debe tener el siguiente formato '0000-XXX'" name="matricula" required>
           </div>
           <div class="fomr-group">
             <label>Marca</label>
@@ -64,7 +63,7 @@
           </div>
           <div class="fomr-group">
             <label>Hora</label>
-            <input type="time" min="06:00" max="22:00" step="600" class="form-control" name="hora" required>
+            <input type="time" min="06:00" max="20:00" step="600" class="form-control" name="hora" required>
           </div>
           <br>
           <input type="submit" class="btn btn-info" value="Guardar">

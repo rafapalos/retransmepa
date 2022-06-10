@@ -18,10 +18,18 @@
             <input id="apellidos" name="apellidos" type="text" class="form-control" value="{{old('apellidos')}}" required>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">DNI</label>
-            <input id="dni" name="dni" type="text" value="{{old('dni')}}" class="form-control" pattern="[0-9]{8}[A-Z]{1}" title="Debe poner 8 números y una letra en mayúsculas" required>
-            @if ($errors->has('dni'))
-                <span class="error text-danger" for="input-dni">El dni ya está registrado anteriormente</span>
+            <label for="" class="form-label">Tipo Documento</label>
+            <select class="form-control" id="documento" name="documento" required>
+                <option class="optionValueDocumento" value="{{old('documento')}}">{{old('documento')}}</option>
+                <option class="optionDNI" value="DNI">DNI</option>
+                <option class="optionPasaporte" value="Pasaporte">Pasaporte</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Nº Documento</label>
+            <input id="num_documento" name="num_documento" type="text" value="{{old('num_documento')}}" class="form-control" required>
+            @if ($errors->has('num_documento'))
+                <span class="error text-danger" for="input-num_documento">El documento ya está registrado anteriormente</span>
             @endif
         </div>
         <div class="mb-3">
@@ -148,6 +156,39 @@
         $('.optionLimpiador').show();
         $('.optionRepartidor').show();
         $('.optionAdministrativo').hide();
+    }
+
+    // DNI - PASAPORTE
+
+    // var selectDniPasaporte = $('#dni_pasaporte').val();
+
+    $("#documento").bind("change keyup", function(event){
+        var selectDniPasaporte = $('#documento').val();
+
+        if (selectDniPasaporte == 'DNI') {
+            document.getElementById("num_documento").setAttribute("pattern", "[0-9]{8}[A-Z]{1}");
+            document.getElementById("num_documento").setAttribute("title", "Debe poner 8 números y una letra en mayúsculas");
+        } else if (selectDniPasaporte == 'Pasaporte') {
+            document.getElementById("num_documento").setAttribute("pattern", "[A-Z]{1}[0-9]{8}");
+            document.getElementById("num_documento").setAttribute("title", "Debe poner una letra en mayúsculas y 8 números");
+        }
+    });
+
+    // SELECT DE DOCUMENTO
+    var optionDocumento = $('.optionValueDocumento').val();
+
+    if (optionDocumento == 'DNI') {
+        $('.optionValueDocumento').hide();
+        document.getElementById("num_documento").setAttribute("pattern", "[0-9]{8}[A-Z]{1}");
+        document.getElementById("num_documento").setAttribute("title", "Debe poner 8 números y una letra en mayúsculas");
+        $('.optionDNI').show();
+        $('.optionPasaporte').show();
+    } else if (optionDocumento == 'Pasaporte') {
+        $('.optionValueDocumento').hide();
+        document.getElementById("num_documento").setAttribute("pattern", "[A-Z]{1}[0-9]{8}");
+        document.getElementById("num_documento").setAttribute("title", "Debe poner una letra en mayúsculas y 8 números");
+        $('.optionDNI').show();
+        $('.optionPasaporte').show();
     }
 </script>
 @stop

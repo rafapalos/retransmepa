@@ -11,12 +11,11 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Nombre del Cliente</label>
-            <input id="nombreCliente" name="nombreCliente" type="text" class="form-control" required>
+            <input id="nombreCliente" name="nombreCliente" type="text" maxLength="30" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" class="form-control" required>
-            <p>La matricula debe tener el siguiente formato "0000-XXX"</p>
+            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" title="La matricula debe tener el siguiente formato '0000-XXX'" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Marca</label>
@@ -44,7 +43,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Precio</label>
-            <input id="precio" name="precio" type="number" step="any" class="form-control" required>
+            <input id="precio" name="precio" type="number" step="any" min="0" max="1000" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Limpieza</label>

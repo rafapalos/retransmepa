@@ -12,7 +12,7 @@
         @method('PUT')
         <div class="mb-3" id="divID">
             <label for="" class="form-label">ID</label>
-            <input id="id" name="id" type="text" class="form-control" value="{{$empleado->id}}">
+            <input id="id" name="id" type="text" class="form-control" value="{{$empleado->id}}" readonly>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
@@ -22,9 +22,13 @@
             <label for="" class="form-label">Apellidos</label>
             <input id="apellidos" name="apellidos" type="text" class="form-control" value="{{$empleado->apellidos}}" required>
         </div>
-        <div class="mb-3" id="divDNI">
-            <label for="" class="form-label">DNI</label> 
-            <input id="dni" name="dni" type="text" class="form-control" value="{{$empleado->dni}}">
+        <div class="mb-3">
+            <label for="" class="form-label">Tipo Documento</label>
+            <input id="documento" name="documento" type="text" class="form-control" value="{{$empleado->documento}}" readonly>
+        </div>
+        <div class="mb-3" id="divNumDocumento">
+            <label for="" class="form-label">Nº Documento</label> 
+            <input id="num_documento" name="num_documento" type="text" class="form-control" value="{{$empleado->num_documento}}" readonly>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha nacimiento</label>
@@ -67,8 +71,7 @@
 @section('js')
 <script>
     $('#divID').hide();
-    $('#divDNI').hide();
-
+    
     $("#empresa").bind("change keyup", function(event){
         var empresa = $('#empresa').val();
 

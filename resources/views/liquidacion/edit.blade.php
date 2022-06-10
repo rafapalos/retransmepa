@@ -54,8 +54,8 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Dinero</label>
-            <input id="dinero" name="dinero" type="text" class="form-control" value="{{$liquidacion->dinero}}" required>
+            <label for="" class="form-label">Sueldo diario</label>
+            <input id="dinero" name="dinero" type="text" class="form-control" value="{{$liquidacion->dinero}}" readonly required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
