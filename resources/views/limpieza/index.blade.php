@@ -111,7 +111,7 @@
             ],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             "responsive": true,
-            language: {
+            "language": {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
@@ -153,6 +153,10 @@
                     extend: 'colvis',
                     text: 'Columnas Visibles'
                 }]
+            }],
+            "columnDefs": [{
+                targets: [0,10],
+                visible: false
             }]
         });
     });
