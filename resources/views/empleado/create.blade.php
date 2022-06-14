@@ -61,7 +61,7 @@
             <select class="form-control" id="cargo" name="cargo" required>
                 <option class="optionValueCargo" value="{{old('cargo')}}">{{old('cargo')}}</option>
                 <option class="optionLimpiador" value="Limpiador">Limpiador</option>
-                <option class="optionRepartidor" value="Repartidor" selected>Repartidor</option>
+                <option class="optionRepartidor" value="Repartidor">Repartidor</option>
                 <option class="optionAdministrativo" value="Administrativo">Administrativo</option>
             </select>
         </div>
