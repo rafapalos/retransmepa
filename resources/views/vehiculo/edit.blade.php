@@ -42,6 +42,7 @@
                 <option class="optionActivo" value="Activo">Activo</option>
                 <option class="optionParado" value="Parado">Parado</option>
                 <option class="optionTaller" value="Taller">Taller</option>
+                <option class="optionInactivo" value="Inactivo">Inactivo</option>
             </select>
         </div>
         <div class="mb-3" id="divPropiedad">
@@ -52,16 +53,6 @@
                 <option class="optionAlquiler" value="Alquiler">Alquiler</option>
             </select>
         </div>
-        <!-- <div class="mb-3" id="divAlquiler">
-        <label for="" class="form-label">Alquiler</label>
-        <select class="form-control" id="alquiler" name="alquiler">
-            <option class="optionValueAlquiler" value="{{old('alquiler')}}">{{old('alquiler')}}</option>
-            <option class="optionNorthgate" value="Northgate">Northgate</option>
-            <option class="optionPinveco" value="Pinveco">Pinveco</option>
-            <option class="optionEnterprise" value="Enterprise">Enterprise</option>
-            <option class="optionLogicar" value="Logicar">Logicar</option>
-        </select>
-    </div> -->
         <div class="mb-3" id="divAlquiler">
             <label for="" class="form-label">Alquiler</label>
             <select class="form-control" id="alquiler" name="alquiler">
