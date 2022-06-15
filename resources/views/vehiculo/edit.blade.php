@@ -52,6 +52,16 @@
                 <option class="optionAlquiler" value="Alquiler">Alquiler</option>
             </select>
         </div>
+        <!-- <div class="mb-3" id="divAlquiler">
+        <label for="" class="form-label">Alquiler</label>
+        <select class="form-control" id="alquiler" name="alquiler">
+            <option class="optionValueAlquiler" value="{{old('alquiler')}}">{{old('alquiler')}}</option>
+            <option class="optionNorthgate" value="Northgate">Northgate</option>
+            <option class="optionPinveco" value="Pinveco">Pinveco</option>
+            <option class="optionEnterprise" value="Enterprise">Enterprise</option>
+            <option class="optionLogicar" value="Logicar">Logicar</option>
+        </select>
+    </div> -->
         <div class="mb-3" id="divAlquiler">
             <label for="" class="form-label">Alquiler</label>
             <select class="form-control" id="alquiler" name="alquiler">
@@ -172,5 +182,23 @@
         $('.optionLogicar').hide();
     }
     
+    $("#fechaAlquilerDesde").bind("change keyup", function(event) {
+        let fechaDesde = $('#fechaAlquilerDesde').val();
+
+        let unixFechaDesde = new Date(fechaDesde).getTime() / 1000;
+
+        if (unixFechaDesde >= 1640995200) {
+            $('#fechaAlquilerHasta').removeAttr('readonly', true);
+        }
+
+        let dateMinValue = new Date(fechaDesde);
+        let dateMinValueFormat = dateMinValue.toISOString()
+        let dateMinSinFormat = dateMinValueFormat.slice("T", -13);
+        let dateMinFormat = dateMinSinFormat.replace("T", "");
+
+        document.getElementById("fechaAlquilerHasta").setAttribute("min", dateMinFormat);
+
+    });
+
 </script>
 @stop

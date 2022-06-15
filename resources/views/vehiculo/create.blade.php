@@ -40,6 +40,7 @@
             <option class="optionActivo" value="Activo">Activo</option>
             <option class="optionParado" value="Parado">Parado</option>
             <option class="optionTaller" value="Taller">Taller</option>
+            <!-- <option class="optionInactivo" value="Inactivo">Inactivo</option> -->
         </select>
     </div>
     <div class="mb-3" id="divPropiedad">
