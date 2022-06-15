@@ -117,14 +117,22 @@
         $('.optionActivo').hide();
         $('.optionParado').show();
         $('.optionTaller').show();
+        $('.optionInactivo').show();
     } else if (optionEstado == 'Parado') {
         $('.optionActivo').show();
         $('.optionParado').hide();
         $('.optionTaller').show();
+        $('.optionInactivo').show();
     } else if (optionEstado == 'Taller') {
         $('.optionActivo').show();
         $('.optionParado').show();
         $('.optionTaller').hide();
+        $('.optionInactivo').show();
+    } else if (optionEstado == 'Inactivo') {
+        $('.optionActivo').show();
+        $('.optionParado').show();
+        $('.optionTaller').show();
+        $('.optionInactivo').hide();
     }
 
     // SELECT EMPRESA

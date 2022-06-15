@@ -40,7 +40,7 @@
             <option class="optionActivo" value="Activo">Activo</option>
             <option class="optionParado" value="Parado">Parado</option>
             <option class="optionTaller" value="Taller">Taller</option>
-            <!-- <option class="optionInactivo" value="Inactivo">Inactivo</option> -->
+            <option class="optionInactivo" value="Inactivo">Inactivo</option>
         </select>
     </div>
     <div class="mb-3" id="divPropiedad">
@@ -107,14 +107,22 @@
         $('.optionActivo').hide();
         $('.optionParado').show();
         $('.optionTaller').show();
+        $('.optionInactivo').show();
     } else if (optionEstado == 'Parado') {
         $('.optionActivo').show();
         $('.optionParado').hide();
         $('.optionTaller').show();
+        $('.optionInactivo').show();
     } else if (optionEstado == 'Taller') {
         $('.optionActivo').show();
         $('.optionParado').show();
         $('.optionTaller').hide();
+        $('.optionInactivo').show();
+    } else if (optionEstado == 'Inactivo') {
+        $('.optionActivo').show();
+        $('.optionParado').show();
+        $('.optionTaller').show();
+        $('.optionInactivo').hide();
     }
 
     // SELECT EMPRESA
