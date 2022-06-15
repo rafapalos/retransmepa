@@ -25,5 +25,3 @@ Route::get('Evento/index/{month}','App\Http\Controllers\ControllerEvent@index_mo
 Route::post('Evento/calendario','App\Http\Controllers\ControllerEvent@calendario');
 Route::get('Evento/details/delete/{nombre}/{matricula}/{marca}/{modelo}/{fecha}/{hora}','App\Http\Controllers\ControllerEvent@destroy');
 // Route::get('Evento/details/update/{nombre}/{matricula}/{marca}/{modelo}/{fecha}/{hora}','App\Http\Controllers\ControllerEvent@update');
-
-// URL::forceScheme('https');
