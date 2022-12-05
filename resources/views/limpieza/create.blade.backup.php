@@ -6,54 +6,24 @@
     <h2>Añadir Limpieza</h2>
 @stop
 
-@section('css')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-@stop
-
-@section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#empleadoAsignado').select2({
-            language: "es",
-            theme: "classic",
-            width: '100%'
-        });
-
-        $('#matricula').select2({
-            language: "es",
-            theme: "classic",
-            width: '100%'
-        });
-
-        let Actual = new Date();
-        let mesActual = Actual.getMonth();
-        let anioActual = Actual.getFullYear();
-        let ultimoDia = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
-        let min = anioActual+'-'+mesActual+'-'+'01';
-        let max = anioActual+'-'+mesActual+'-'+ultimoDia;
-
-        $("#fechaLimpieza").attr("min", min);
-        $("#fechaLimpieza").attr("max", max);
-
-    });
-
-</script>
-@stop
-
 @section('content')
     <form action="/limpiezas" method="POST">
         @csrf
         <div class="mb-3">
+            <label for="" class="form-label">Nombre del Cliente</label>
+            <input id="nombreCliente" name="nombreCliente" type="text" maxLength="30" class="form-control" required>
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <select class="form-control" id="matricula" name="matricula" required>
-                <option value="">Seleccionar opción</option>
-                @foreach ($clientesLimpiezas as $clientesLimpiezas)
-                <option value="{{$clientesLimpiezas->id}}-{{$clientesLimpiezas->matricula}}">{{$clientesLimpiezas->matricula}}</option>
-                @endforeach
-            </select>
+            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" title="La matricula debe tener el siguiente formato '0000-XXX'" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Marca</label>
+            <input id="marca" name="marca" type="text" maxLength="15" pattern="[A-Za-z ]{1,15}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Modelo</label>
+            <input id="modelo" name="modelo" type="text" maxLength="15" pattern="[A-Za-z0-9]{1,15}" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Lavado</label>
@@ -77,12 +47,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de Limpieza</label>
-            <input id="fechaLimpieza" name="fechaLimpieza" type="date" class="form-control" required>
+            <input id="fechaLimpieza" name="fechaLimpieza" type="date" min="2022-01-01" max="2050-01-01" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Empleado a Asignar</label>
             <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" required>
-                <option value="">Seleccionar</option>
                 @foreach ($empleadosLimpiezas as $empleadosLimpiezas)
                 <option value="{{$empleadosLimpiezas->id}}-{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}">{{$empleadosLimpiezas->nombre}} {{$empleadosLimpiezas->apellidos}}</option>
                 @endforeach

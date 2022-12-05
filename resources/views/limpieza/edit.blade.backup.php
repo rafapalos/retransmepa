@@ -3,11 +3,7 @@
 @section('title', 'Retransmepa')
 
 @section('content_header')
-    <h2>Editar Limpieza</h2>
-@stop
-
-@section('css')
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <h2>Añadir Limpieza</h2>
 @stop
 
 @section('content')
@@ -15,13 +11,20 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
+            <label for="" class="form-label">Nombre del Cliente</label>
+            <input id="nombreCliente" name="nombreCliente" type="text" class="form-control" value="{{$limpieza->nombreCliente}}" required>
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
-            <select class="form-control" id="matricula" name="matricula" required>
-                <option value="">Seleccionar</option>
-                @foreach ($clienteEdit as $clienteEdit)
-                <option value="{{$clienteEdit->id}}-{{$clienteEdit->matricula}}">{{$clienteEdit->matricula}}</option>
-                @endforeach
-            </select>
+            <input id="matricula" name="matricula" type="text" maxLength="8" pattern="[0-9]{4}[-][A-Z]{3}" title="La matricula debe tener el siguiente formato '0000-XXX'" class="form-control" value="{{$limpieza->matricula}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Marca</label>
+            <input id="marca" name="marca" type="text" class="form-control" value="{{$limpieza->marca}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Modelo</label>
+            <input id="modelo" name="modelo" type="text" class="form-control" value="{{$limpieza->modelo}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Tipo de Lavado</label>
@@ -52,7 +55,7 @@
         <div class="mb-3">
             <label for="" class="form-label">Empleado a Asignar</label>
             <select class="form-control" id="empleadoAsignado" name="empleadoAsignado" required>
-                <option value="">Seleccionar</option>
+                <option value="">Elije una opción</option>
                 @foreach ($empleadoEdit as $empleadoEdit)
                 <option value="{{$empleadoEdit->id}}-{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}">{{$empleadoEdit->nombre}} {{$empleadoEdit->apellidos}}</option>
                 @endforeach
@@ -64,35 +67,7 @@
 @stop
 
 @section('js')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<script type="text/javascript">
-    // SELECT RESPONSIVE
-    $(document).ready(function() {
-        $('#empleadoAsignado').select2({
-            language: "es",
-            theme: "classic",
-            width: '100%'
-        });
-
-        $('#matricula').select2({
-            language: "es",
-            theme: "classic",
-            width: '100%'
-        });
-
-        let Actual = new Date();
-        let mesActual = Actual.getMonth();
-        let anioActual = Actual.getFullYear();
-        let ultimoDia = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
-        let min = anioActual+'-'+mesActual+'-'+'01';
-        let max = anioActual+'-'+mesActual+'-'+ultimoDia;
-
-        $("#fechaLimpieza").attr("min", min);
-        $("#fechaLimpieza").attr("max", max);
-    });
-
+<script>
     // SELECT DE TIPO DE LAVADO
     var optionTipoLavado = $('.optionValueTipoLavado').val();
 

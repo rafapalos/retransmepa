@@ -205,7 +205,37 @@ return [
             'icon'        => 'fa fa-fw fa-exclamation',
             'label_color' => 'warning',
         ],
+        [
+            'text'        => 'Mantenimiento',
+            'url'         => 'mantenimientos',
+            'icon'        => 'fa fa-fw fa-wrench',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'Codigo Postal',
+            'url'         => 'codigopostales',
+            'icon'        => 'fa fa-fw fa-flag',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'Delegaciones',
+            'url'         => 'delegaciones',
+            'icon'        => 'fa fa-fw fa-building',
+            'label_color' => 'warning',
+        ],
+        [
+            'text'        => 'Cargos',
+            'url'         => 'cargos',
+            'icon'        => 'fa fa-fw fa-address-card',
+            'label_color' => 'warning',
+        ],
         ['header' => 'Lavadero'],
+        [
+            'text'        => 'Clientes',
+            'icon'        => 'far fa-fw fa-user',
+            'url'         => 'clientes',
+            'label_color' => 'warning',
+        ],
         [
             'text'        => 'Limpiezas',
             'icon'        => 'fa fa-fw fa-shower',

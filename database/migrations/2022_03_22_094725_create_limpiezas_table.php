@@ -15,10 +15,7 @@ return new class extends Migration
     {
         Schema::create('limpiezas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreCliente', 40);
-            $table->string('matricula',20);
-            $table->string('marca',40);
-            $table->string('modelo',40);
+            $table->string('matricula',12);
             $table->string('tipoLavado',50);
             $table->string('tipoCoche',50);
             $table->string('precio',10);
@@ -28,6 +25,10 @@ return new class extends Migration
                   ->contrained('empleados')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
+            $table->foreignId('id_cliente')
+            ->contrained('clientes')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
             $table->string('registrado_por',30);
             $table->timestamps();
         });

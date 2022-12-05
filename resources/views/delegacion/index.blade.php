@@ -3,40 +3,30 @@
 @section('title', 'Retransmepa')
 
 @section('content_header')
-<h1>Listado de incidencias</h1>
+<h1>Listado de delegaciones</h1>
 @stop
 
 @section('content')
-<a href="incidencias/create" class="btn btn-primary mb-3">Añadir incidencia</a>
+<a href="delegaciones/create" class="btn btn-primary mb-3">Añadir Delegación</a>
 
-<table id="incidencias" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+<table id="delegaciones" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="bg-primary text-white">
         <tr>
-            <th scope="col">Nº Incidencia</th>
-            <th scope="col">Nombre del empleado</th>
-            <th scope="col">Sector</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Sanción</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Registrado por</th>
+            <th scope="col">Nº Delegación</th>
+            <th scope="col">Nombre de la empresa</th>
+            <th scope="col">Localidad</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($incidencias as $incidencia)
+        @foreach ($delegaciones as $delegacion)
         <tr>
-            <td>{{ $incidencia-> id }}</td>
-            <td>{{ $incidencia-> nombreEmpleado }}</td>
-            <td>{{ $incidencia-> sector }}</td>
-            <td>{{ $incidencia-> descripcion }}</td>
-            <td>{{ $incidencia-> estado }}</td>
-            <td>{{ $incidencia-> sancion }} €</td>
-            <td>{{ $incidencia-> fecha }}</td>
-            <td>{{ $incidencia-> registrado_por }}</td>
+            <td>{{ $delegacion-> id }}</td>
+            <td>{{ $delegacion-> nombreEmpresa }}</td>
+            <td>{{ $delegacion-> localidad }}</td>
             <td>
-                <form action="{{ route ('incidencias.destroy',$incidencia->id) }}" method="POST">
-                    <a href="/incidencias/{{ $incidencia-> id }}/edit" class="btn btn-info">Editar</a>
+                <form action="{{ route ('delegaciones.destroy',$delegacion->id) }}" method="POST">
+                    <a href="/delegaciones/{{ $delegacion-> id }}/edit" class="btn btn-info">Editar</a>
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger functionDelete">Borrar</button>
@@ -56,6 +46,7 @@
 @section('js')
 <!-- SweetAlert -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 <!-- DataTables responsive con buttons-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
@@ -95,16 +86,16 @@
             });
         });
 
-        $('#incidencias').DataTable({
+        $('#delegaciones').DataTable({
             "pageLength": 10,
+            "info": false,
             "lengthMenu": [
                 [5, 10, 50, -1],
                 [5, 10, 50, "Todos"]
             ],
-            "info": false,
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             "responsive": true,
-            language: {
+            "language": {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
@@ -132,12 +123,12 @@
                     // Botón para Excel
                     extend: 'excel',
                     text: 'Exportar a excel',
-                    filename: 'RegistroIncidencias'
+                    filename: 'RegistroLimpiezas'
                 }, {
                     // Botón para Pdf
                     extend: 'pdf',
                     text: 'Exportar a pdf',
-                    filename: 'RegistroIncidencias'
+                    filename: 'RegistroLimpiezas'
                 }, {
                     // Botón para imprimir
                     extend: 'print',
@@ -148,7 +139,7 @@
                 }]
             }],
             "columnDefs": [{
-                targets: [0,7],
+                targets: [0],
                 visible: false
             }]
         });

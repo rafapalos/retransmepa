@@ -20,28 +20,32 @@ class LimpiezaController extends Controller {
     // Función para añadir limpieza
     public function create() {
         $empleadosLimpiezas = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'" );
+        $clientesLimpiezas = DB::select("SELECT id, matricula FROM clientes");
 
-        return view('limpieza.create', ['empleadosLimpiezas' => $empleadosLimpiezas]);
+        return view('limpieza.create', ['empleadosLimpiezas' => $empleadosLimpiezas, 'clientesLimpiezas' => $clientesLimpiezas]);
     }
 
     public function store(Request $request) {
         $limpiezas = new Limpieza();
 
         $IdEmpleadoAsignado = $request->get('empleadoAsignado');
-        $idEmpleado = stristr( $IdEmpleadoAsignado, "-", true );
-        $nombreA = stristr( $IdEmpleadoAsignado, "-", false );
+        $idEmpleado = stristr($IdEmpleadoAsignado, "-", true );
+        $nombreA = stristr($IdEmpleadoAsignado, "-", false );
         $nombreApellidos = substr($nombreA, 1);
 
-        $limpiezas-> nombreCliente = $request->get('nombreCliente');
-        $limpiezas-> matricula = $request->get('matricula');
-        $limpiezas-> marca = $request->get('marca');
-        $limpiezas-> modelo = $request->get('modelo');
+        $IdMatriculaAsignada = $request->get('matricula');
+        $idCliente = stristr($IdMatriculaAsignada, "-", true );
+        $matricula1 = stristr($IdMatriculaAsignada, "-", false );
+        $matricula = substr($matricula1, 1);
+
+        $limpiezas-> matricula = $matricula;
         $limpiezas-> tipoLavado = $request->get('tipoLavado');
         $limpiezas-> tipoCoche = $request->get('tipoCoche');
         $limpiezas-> precio = $request->get('precio');
         $limpiezas-> fechaLimpieza = $request->get('fechaLimpieza');
         $limpiezas-> empleadoAsignado = $nombreApellidos;
         $limpiezas-> id_empleado = $idEmpleado;
+        $limpiezas-> id_cliente = $idCliente;
         $limpiezas-> registrado_por = auth()->user()->name;
 
         $limpiezas->save();
@@ -49,16 +53,13 @@ class LimpiezaController extends Controller {
         return redirect('/limpiezas');
     }
 
-    public function show($id) {
-        //
-    }
-
     // Función para el botón de editar del dataTables
     public function edit($id) {
         $empleadoEdit = DB::select("SELECT id, nombre, apellidos FROM empleados WHERE estado = 'Activo' AND empresa = 'LavadosExpress' AND cargo = 'Limpiador'");
+        $clienteEdit = DB::select("SELECT id, matricula FROM clientes");
 
         $limpieza = Limpieza::find($id);
-        return view('limpieza.edit', ['empleadoEdit' => $empleadoEdit])->with('limpieza',$limpieza);
+        return view('limpieza.edit', ['empleadoEdit' => $empleadoEdit, 'clienteEdit' => $clienteEdit])->with('limpieza',$limpieza);
     }
 
     public function update(Request $request, $id) {
@@ -69,16 +70,19 @@ class LimpiezaController extends Controller {
         $nombreA = stristr( $IdEmpleadoAsignado, "-", false );
         $nombreApellidos = substr($nombreA, 1);
 
-        $limpieza-> nombreCliente = $request->get('nombreCliente');
-        $limpieza-> matricula = $request->get('matricula');
-        $limpieza-> marca = $request->get('marca');
-        $limpieza-> modelo = $request->get('modelo');
+        $IdMatriculaAsignada = $request->get('matricula');
+        $idCliente = stristr($IdMatriculaAsignada, "-", true );
+        $matricula1 = stristr($IdMatriculaAsignada, "-", false );
+        $matricula = substr($matricula1, 1);
+
+        $limpieza-> matricula = $matricula;
         $limpieza-> tipoLavado = $request->get('tipoLavado');
         $limpieza-> tipoCoche = $request->get('tipoCoche');
         $limpieza-> precio = $request->get('precio');
         $limpieza-> fechaLimpieza = $request->get('fechaLimpieza');
         $limpieza-> empleadoAsignado = $nombreApellidos;
         $limpieza-> id_empleado = $idEmpleado;
+        $limpieza-> id_cliente = $idCliente;
         $limpieza-> registrado_por = auth()->user()->name;
 
         $limpieza->save();

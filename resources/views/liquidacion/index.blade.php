@@ -104,13 +104,14 @@
 
         var table = $('#liquidaciones').DataTable({
             "pageLength": 10,
-            "lengthMenu": [
-                [5, 10, 50, -1],[5, 10, 50, "Todos"]
-            ],
             "info": false,
+            "lengthMenu": [
+                [5, 10, 50, -1],
+                [5, 10, 50, "Todos"]
+            ],
             "dom": 'B<"float-left"i><"float-right"f>t<"float-left"l><"float-right"p><"clearfix">',
             "responsive": true,
-            language: {
+            "language": {
                 "decimal": "",
                 "emptyTable": "No hay información",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
@@ -130,8 +131,7 @@
                     "previous": "Anterior"
                 }
             },
-            "buttons": [
-                {
+            "buttons": [{
                     extend: 'collection',
                     text: 'Colección',
                     className: 'custom-html-collection',
@@ -153,8 +153,11 @@
                         extend: 'colvis',
                         text: 'Columnas Visibles'
                     }]
-                }
-            ]
+                }],
+                "columnDefs": [{
+                    targets: [0,11],
+                    visible: false
+            }]
         });
     });
 </script>

@@ -59,7 +59,7 @@
           </div>
           <div class="fomr-group">
             <label>Fecha</label>
-            <input type="date" class="form-control" min="2022-06-01" max="2050-01-01" name="fecha" required>
+            <input type="date" class="form-control" max="01-03-2022" id="fecha" name="fecha" required>
           </div>
           <div class="fomr-group">
             <label>Hora</label>
@@ -72,6 +72,21 @@
     </div>
   </body>
 </html>
+@stop
+
+@section('js')
+<script type="text/javascript">
+    $(document).ready(function() {
+        let Actual = new Date();
+        let mesActual = Actual.getMonth();
+        let anioActual = Actual.getFullYear();
+        let min = anioActual+'-'+mesActual+'-'+'01';
+
+        $("#fecha").attr("min", min);
+
+    });
+
+</script>
 @stop
 
 @section('css')

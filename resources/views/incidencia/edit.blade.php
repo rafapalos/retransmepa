@@ -3,7 +3,11 @@
 @section('title', 'Retransmepa')
 
 @section('content_header')
-    <h2>Añadir Incidencia</h2>
+    <h2>Editar Incidencia</h2>
+@stop
+
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @stop
 
 @section('content')
@@ -21,8 +25,7 @@
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Empleado</label>
             <select class="form-control" id="nombreEmpleado" name="nombreEmpleado" required>
-                <!-- <option class="optionNombreValue" value="{{$incidencia->nombreEmpleado}}">{{$incidencia->nombreEmpleado}}</option> -->
-                <option value="">Elije un empleado</option>
+                <option value="">Seleccionar opción</option>
                 @foreach ($empleadosIncidenciasTransporte as $empleadosIncidenciasTransporte)
                 <option class="optionTransporte" value="{{$empleadosIncidenciasTransporte->id}}-{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}">{{$empleadosIncidenciasTransporte->nombre}} {{$empleadosIncidenciasTransporte->apellidos}}</option>
                 @endforeach
@@ -57,8 +60,28 @@
 @stop
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script>
     // $('.optionLavadero').hide();
+    $(document).ready(function() {
+        $('#nombreEmpleado').select2({
+            language: "es",
+            theme: "classic",
+            width: '100%'
+        });
+
+        let Actual = new Date();
+        let mesActual = Actual.getMonth();
+        let anioActual = Actual.getFullYear();
+        let ultimoDia = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+        let min = anioActual+'-'+mesActual+'-'+'01';
+        let max = anioActual+'-'+mesActual+'-'+ultimoDia;
+
+        $("#fecha").attr("min", min);
+        $("#fecha").attr("max", max);
+    });
 
     $("#sector").bind("change keyup", function(event){
         var sector = $('#sector').val();

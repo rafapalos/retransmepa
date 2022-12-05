@@ -23,6 +23,10 @@ return new class extends Migration
                   ->contrained('vehiculos')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
+            $table->foreignId('id_codigo_postal')
+            ->contrained('codigo_postals')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
             $table->integer('numRepartidor');
             $table->string('nombre',40);
             $table->string('matricula',8);

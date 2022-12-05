@@ -25,7 +25,7 @@ class ControllerEvent extends Controller {
         'matricula'  =>  'required',
         'marca'      =>  'required',
         'modelo'     =>  'required',
-        'fecha'     =>   'required',
+        'fecha'     =>   'required|max:2',
         'hora'       =>  'required'
        ]);
   

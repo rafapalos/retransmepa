@@ -6,6 +6,10 @@
     <h2>Añadir Liquidación</h2>
 @stop
 
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@stop
+
 @section('content')
     <form action="/liquidaciones/{{$liquidacion->id}}" method="POST">
         @csrf
@@ -17,7 +21,7 @@
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
             <select class="form-control" id="nombre" name="nombre" required>
-                <option value="">Elija una opción</option>
+                <option value="">Seleccionar opción</option>
                 @foreach ($empleadosEdit as $empleadosEdit)
                 <option value="{{$empleadosEdit->id}}-{{$empleadosEdit->nombre}} {{$empleadosEdit->apellidos}}">{{$empleadosEdit->nombre}} {{$empleadosEdit->apellidos}}</option>
                 @endforeach
@@ -26,7 +30,7 @@
         <div class="mb-3">
             <label for="" class="form-label">Matricula</label>
             <select class="form-control" id="matricula" name="matricula" required>
-                <option value="">Elija una opción</option>
+                <option value="">Seleccionar opción</option>
                 @foreach ($matriculaEdit as $matriculaEdit)
                 <option value="{{$matriculaEdit->id}}-{{$matriculaEdit->matricula}}">{{$matriculaEdit->matricula}}</option>
                 @endforeach
@@ -59,15 +63,15 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
-            <input id="fecha" name="fecha" type="date" class="form-control" min="2022-01-01" max="2050-01-01" value="{{$liquidacion->fecha}}" required>
+            <input id="fecha" name="fecha" type="date" class="form-control" value="{{$liquidacion->fecha}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Código Postal Repartido</label>
             <select class="form-control" id="codPostal" name="codPostal" required>
-                <option class="optionValueCodPostal" value="{{$liquidacion->codPostal}}">{{$liquidacion->codPostal}}</option>
-                <option class="optionBormujos" value="41930">41930</option>
-                <option class="optionMairena" value="41927">41927</option>
-                <option class="optionTomares" value="41940">41940</option>
+                <option value="">Seleccionar opción</option>
+                @foreach ($codPostalesEdit as $codPostalesEdit)
+                <option value="{{$codPostalesEdit->id}}-{{$codPostalesEdit->codigoPostal}}">{{$codPostalesEdit->codigoPostal}}</option>
+                @endforeach
             </select>
         </div>
         <a href="/liquidaciones" class="btn btn-secondary">Cancelar</a>
@@ -76,7 +80,40 @@
 @stop
 
 @section('js')
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+    // SELECT RESPONSIVE
+    $(document).ready(function() {
+        $('#nombre').select2({
+            language: "es",
+            theme: "classic",
+            width: '100%'
+        });
+
+        $('#matricula').select2({
+            language: "es",
+            theme: "classic",
+            width: '100%'
+        });
+
+        $('#codPostal').select2({
+            language: "es",
+            theme: "classic",
+            width: '100%'
+        });
+
+        let Actual = new Date();
+        let mesActual = Actual.getMonth();
+        let anioActual = Actual.getFullYear();
+        let ultimoDia = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+        let min = anioActual+'-'+mesActual+'-'+'01';
+        let max = anioActual+'-'+mesActual+'-'+ultimoDia;
+
+        $("#fecha").attr("min", min);
+        $("#fecha").attr("max", max);
+    });
 
     if ($("#optionValueDiaTrabajado").val() == "") {
         $('#dinero').val('0');

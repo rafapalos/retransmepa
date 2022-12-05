@@ -16,6 +16,9 @@ Route::resource('limpiezas', 'App\Http\Controllers\LimpiezaController');
 Route::resource('incidencias', 'App\Http\Controllers\IncidenciaController');
 Route::resource('liquidaciones', 'App\Http\Controllers\LiquidacionController');
 Route::resource('usuarios', 'App\Http\Controllers\UsuarioController');
+Route::resource('clientes', 'App\Http\Controllers\ClienteController');
+Route::resource('codigopostales', 'App\Http\Controllers\CodigoPostalController');
+Route::resource('delegaciones', 'App\Http\Controllers\DelegacionController');
 
 Route::get('Evento/form','App\Http\Controllers\ControllerEvent@form');
 Route::post('Evento/create','App\Http\Controllers\ControllerEvent@create');

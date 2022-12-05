@@ -13,10 +13,7 @@
     <thead class="bg-primary text-white">
         <tr>
             <th scope="col">Nº Limpieza</th>
-            <th scope="col">Nombre del cliente</th>
             <th scope="col">Matricula</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
             <th scope="col">Tipo de lavado</th>
             <th scope="col">Tipo de coche</th>
             <th scope="col">Precio</th>
@@ -30,10 +27,7 @@
         @foreach ($limpiezas as $limpieza)
         <tr>
             <td>{{ $limpieza-> id }}</td>
-            <td>{{ $limpieza-> nombreCliente }}</td>
             <td>{{ $limpieza-> matricula }}</td>
-            <td>{{ $limpieza-> marca }}</td>
-            <td>{{ $limpieza-> modelo }}</td>
             <td>{{ $limpieza-> tipoLavado }}</td>
             <td>{{ $limpieza-> tipoCoche }}</td>
             <td>{{ $limpieza-> precio }} €</td>
@@ -155,7 +149,7 @@
                 }]
             }],
             "columnDefs": [{
-                targets: [0,10],
+                targets: [0,7],
                 visible: false
             }]
         });
